@@ -41,7 +41,7 @@ public class Saran {
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 			driver.get(Utility.getProperty("Production_URL"));
-			Thread.sleep(30000);
+			Thread.sleep(10000);
 			driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Store_id"));
 			driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Store_password"));
 			Thread.sleep(3000);
@@ -80,8 +80,6 @@ public class Saran {
 			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
 			driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
 			Thread.sleep(2000);
-			driver.findElement(By.xpath(".//div[text()=\"Floor 2\"]")).click();
-			Thread.sleep(500);
 			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
@@ -106,8 +104,83 @@ public class Saran {
 			activeCheck.add(CheckNo);
 			driver.findElement(By.xpath(".//linga-icon[@symbol=\"Split\"]")).click();
 			Thread.sleep(1500);
-			
+			driver.findElement(By.xpath(".//button[@class=\"add-seat\"]")).click();
+			driver.findElement(By.xpath(".//button[@class=\"add-seat\"]")).click();
+			driver.findElement(By.xpath(".//p[contains(text(),\"Raggi Mall\")]")).click();
+			driver.findElement(By.xpath(".//ion-col[contains(text(),\"Seat 2\")]")).click();
+			driver.findElement(By.xpath(".//p[contains(text(),\"Tacco Bell\")]")).click();
+			driver.findElement(By.xpath(".//ion-col[contains(text(),\"Seat 3\")]")).click();
+			driver.findElement(By.xpath(".//button[contains(text(),\"Save & Close\")]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//div[contains(text(),\"Finish\")]")).click();
+			driver.findElement(By.xpath(".//span[contains(text(),\"Check Status\")]")).click();
+			driver.findElement(By.xpath(".//button[contains(text(),\"Active\")]")).click();
+			driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(CheckNo);
+			driver.findElement(By.xpath(".//tr/td[contains(.,'"+CheckNo+"')]")).click();
+			driver.findElement(By.xpath(".//button[contains(text(),\" Open check \")]")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.xpath(".//linga-icon[@symbol=\"Split\"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//p[contains(text(),\"Chai \")]")).click();
+			driver.findElement(By.xpath(".//div[contains(text(),\"Separate item\")]")).click();
+			driver.findElement(By.xpath(".//button[contains(@class,\"mat-focus-indicator mat-button mat-button-base _mat-animation-noopable\")]/span[contains(text(),\"3\")]")).click();
+			driver.findElement(By.xpath(".//span[contains(text(),\"Continue\")]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//p[contains(text(),\"Raggi Mall\")]")).click();
+			driver.findElement(By.xpath(".//div[contains(text(),\"Separate item\")]")).click();
+			driver.findElement(By.xpath(".//button[contains(@class,\"mat-focus-indicator mat-button mat-button-base _mat-animation-noopable\")]/span[contains(text(),\"3\")]")).click();
+			driver.findElement(By.xpath(".//span[contains(text(),\"Continue\")]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//p[contains(text(),\"Tacco Bell\")]")).click();
+			driver.findElement(By.xpath(".//div[contains(text(),\"Separate item\")]")).click();
+			driver.findElement(By.xpath(".//button[contains(@class,\"mat-focus-indicator mat-button mat-button-base _mat-animation-noopable\")]/span[contains(text(),\"3\")]")).click();
+			driver.findElement(By.xpath(".//span[contains(text(),\"Continue\")]")).click();
+			driver.findElement(By.xpath(".//button[contains(text(),\"Save & Close\")]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//div[contains(text(),\"Finish\")]")).click();
+			 driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
 		}
+			 driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+
+			driver.findElement(By.xpath(".//span[contains(text(),\"Check Status\")]")).click();
+			 for(int i=0; i<activeCheck.size(); i++){
+				item.add(placedMenu.toString());
+	
+			driver.findElement(By.xpath(".//button[contains(text(),\"Active\")]")).click();
+			driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(i));
+			driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(i)+"')]")).click();
+			driver.findElement(By.xpath(".//button[contains(text(),\" Open check \")]")).click();
+			
+			 int item_count1 = driver.findElements(By.xpath(".//ion-col[@class=\"qsrSeats_row-col md hydrated\"]/button")).size();
+			 for(int k=1 ;k<=item_count1 ; k++)	{
+				 driver.findElement(By.xpath("(.//ion-col[@class=\"qsrSeats_row-col md hydrated\"]/button)"+"["+k+"]")).click();
+
+			 int item_count = driver.findElements(By.xpath(".//div[contains(@class,\"orderlist-container  \")]")).size();
+			 for(int j=1 ;j<=item_count ; j++)	{
+				 JavascriptExecutor js = (JavascriptExecutor) driver;
+				 WebElement menu3 = driver.findElement(By.xpath("(.//div[contains(@class,\"orderlist-menuname\")])" + "[" + j + "]"));
+				 js.executeScript("arguments[0].scrollIntoView();", menu3);
+				 menuName.add(menu3.getText());
+			  }	
+			 }
+			 menuItem.add(menuName.toString());
+			menuName.clear();
+			  driver.findElement(By.xpath(".//div[contains(text(),\"Finish\")]")).click();
+			 }
+			 System.out.println(item);
+			 System.out.println(menuItem);
+
+
+			 if(item.equals(menuItem)) {
+				  test.log(LogStatus.PASS, "Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale - Checks available");
+
+				 System.out.println("All the menu available");
+			 }
+			 else {
+				  test.log(LogStatus.FAIL, "Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale - Checks not available");
+			 }
+
 	}
 
 	private static void Place_Menu_SplitEvenly() throws InterruptedException {
