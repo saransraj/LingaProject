@@ -71,7 +71,7 @@ public class Saran {
 			// Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale();
 			// Place_Menu_Split_item_SeatWise();
 			// Place_Menu_Split_item_Groupseat();
-			//  Place_Menu_SplitEvenly();
+			Place_Menu_SplitEvenly();
 			  Place_Menu_SeparateItem();
 }
 	private static void Place_Menu_SeparateItem() throws InterruptedException {
