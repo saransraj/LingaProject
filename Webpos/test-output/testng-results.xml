@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="131384" started-at="2021-07-22T12:36:37 IST" finished-at="2021-07-22T12:38:49 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="131384" started-at="2021-07-22T12:36:37 IST" finished-at="2021-07-22T12:38:49 IST">
+      <class name="Linga.SampleTestNG">
+        <test-method status="PASS" signature="login()[pri:0, instance:Linga.SampleTestNG@1bd4fdd]" name="login" is-config="true" duration-ms="108962" started-at="2021-07-22T12:36:37 IST" finished-at="2021-07-22T12:38:26 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="Double_click_Finish_button_Check_Available_or_Not()[pri:0, instance:Linga.SampleTestNG@1bd4fdd]" name="Double_click_Finish_button_Check_Available_or_Not" duration-ms="6922" started-at="2021-07-22T12:38:26 IST" finished-at="2021-07-22T12:38:33 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Double_click_Finish_button_Check_Available_or_Not -->
+        <test-method status="PASS" signature="Double_click_Finish_button_Menu_Available_or_Not()[pri:1, instance:Linga.SampleTestNG@1bd4fdd]" name="Double_click_Finish_button_Menu_Available_or_Not" duration-ms="2655" started-at="2021-07-22T12:38:33 IST" finished-at="2021-07-22T12:38:36 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Double_click_Finish_button_Menu_Available_or_Not -->
+        <test-method status="PASS" signature="Double_click_All_button_check_available()[pri:2, instance:Linga.SampleTestNG@1bd4fdd]" name="Double_click_All_button_check_available" duration-ms="6702" started-at="2021-07-22T12:38:36 IST" finished-at="2021-07-22T12:38:43 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Double_click_All_button_check_available -->
+        <test-method status="PASS" signature="Double_click_All_button_Menu_Available_or_Not()[pri:3, instance:Linga.SampleTestNG@1bd4fdd]" name="Double_click_All_button_Menu_Available_or_Not" duration-ms="2446" started-at="2021-07-22T12:38:43 IST" finished-at="2021-07-22T12:38:45 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Double_click_All_button_Menu_Available_or_Not -->
+        <test-method status="PASS" signature="flushTest()[pri:0, instance:Linga.SampleTestNG@1bd4fdd]" name="flushTest" is-config="true" duration-ms="3511" started-at="2021-07-22T12:38:45 IST" finished-at="2021-07-22T12:38:49 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushTest -->
+      </class> <!-- Linga.SampleTestNG -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
