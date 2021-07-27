@@ -63,7 +63,7 @@ public class Create_Check_Loop {
 		}
 			public static void dineservice1() throws InterruptedException
 			  {
-			  for (int j = 0; j < 100; j++){
+			  for (int j = 0; j < 4; j++){
 				  driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 
 			  driver.findElement(By.xpath(".//*[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();

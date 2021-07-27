@@ -1,7 +1,9 @@
 package Linga;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -22,6 +24,7 @@ public class Saran {
 	static ArrayList<String> menuName= new ArrayList<String>();
 	static ArrayList<String> item= new ArrayList<String>();
 	static ArrayList<String> menuItem= new ArrayList<String>();
+	static ArrayList<String> itemName= new ArrayList<String>();
 
 	static ArrayList<String> activeCheck= new ArrayList<String>();
 
@@ -73,6 +76,7 @@ public class Saran {
 			// Place_Menu_Split_item_Groupseat();
 			//Place_Menu_SplitEvenly();
 			  Place_Menu_SeparateItem();
+			  
 }
 	private static void Place_Menu_SeparateItem() throws InterruptedException {
 		for(int i=0; i<=2; i++) {
@@ -164,15 +168,69 @@ public class Saran {
 				 menuName.add(menu3.getText());
 			  }	
 			 }
-			 menuItem.add(menuName.toString());
+			itemName.add(menuName.toString());
 			menuName.clear();
 			  driver.findElement(By.xpath(".//div[contains(text(),\"Finish\")]")).click();
 			 }
 			 System.out.println(item);
-			 System.out.println(menuItem);
+			 System.out.println(itemName);
+//			 List<String> differences = itemName.stream()
+//			            .filter(element -> !item.contains(element))
+//			            .collect(Collectors.toList());
+//			 System.out.println("NewOne"+differences);
+//			 item.stream().filter((num) -> 
+//				 itemName.stream().filter(val -> 
+//					 num.stream().filter(num2 ->
+//					 val.stream().filter(val1 -> {
+//						if(num2 == val1) {
+//					 }
+//					 });
+//				 )
+//				 )
+//				 
+//			 );
+			 item.forEach(val -> {
+				 itemName.forEach(data -> {
+					 for(int i = 0 ; i< val.length() ; i++) {
+						 for (int j=0; j< data.length(); j++) {
+							 if(val.contains(data)) {
+								 menuItem.add(data);
+								 break;
+							 }
+						 }
+					 }
+					 
+				 });
+			 });
+			 	System.out.println(menuItem);
 
+//			 for(int i=0;i<item.size();i++) {
+//		        	for(int j=0; j<itemName.size();j++) {
+//		   			// for(int k=0;k<item.get(i).length();k++) {
+//				        	//for(int m=0; m<itemName.get(j).length();m++) {
+//
+//				               // System.out.println(item.get(i).length());
+//		        		
+//				   			 boolean val = item.get(i).contains(itemName.get(j));
+//				               System.out.println(val);
+////				               menuItem.add(val);
+//				              //  int sana = item.get(i).indexOf(k);
+//				              //  int saran = itemName.get(j).indexOf(m);
+//				                //System.out.println(sana);
+//				                //System.out.println(saran);
+//
+//				                
+//		        		//if(sana.equals(saran){
+//		        		//	menuItem.add(saran);
+//		        			//break;
+//		        		//}
+//		        			
+//		        	//}
+//
+//		        }}
+			 
 
-			 if(item.equals(menuItem)) {
+			 if(itemName.equals(menuItem)) {
 				  test.log(LogStatus.PASS, "Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale - Checks available");
 
 				 System.out.println("All the menu available");

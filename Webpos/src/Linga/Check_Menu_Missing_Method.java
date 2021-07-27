@@ -95,9 +95,9 @@ public class Check_Menu_Missing_Method {
 			//Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_void_check();
 			// Browser1_CreateChecks_TransferAllItem_FromOneTable_To_AnotherTable_Browser2_TransferAllItem_FromOneTable_To_AnotherTable();	
 			 // Browser1_CreateChecks_Merge_Two_Checks_Browser2_Merge_Two_Checks();
-			  Transfer_server_In_Loop();
+			  //Transfer_server_In_Loop();
 			//  Transfer_Table_In_Loop();
-			//Browser1_Create_100Checks_Browser2_Close_100Check();
+			Browser1_Create_100Checks_Browser2_Close_100Check();
 			 //Browser1_Create_100holdChecks_Browser2_send_100Check_ToKitchen();
 			 // Browser1_Create_100Checks_Browser2_void_100Check();
 			//Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale();
@@ -441,8 +441,6 @@ public class Check_Menu_Missing_Method {
 				driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 				Thread.sleep(2000);
 				
-				//for (int j = 0; j < 50; j++){
-					driver.switchTo().window(tabs.get(1));
 					for (int k = 0; k < 100; k++){
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 					
@@ -503,7 +501,7 @@ public class Check_Menu_Missing_Method {
 					}
 					
 					
-				//}
+				
 					driver.switchTo().window(tabs.get(1));
 
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
