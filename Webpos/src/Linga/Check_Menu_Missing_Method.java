@@ -100,7 +100,7 @@ public class Check_Menu_Missing_Method {
 			  // Place_Menu_Do_Payment_VoidPaymnet_DoAnotherPaymnet();
 			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_SideCC_payment();
 			 // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_HA_payment();
-			   Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment();
+			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment();
 
 			 //Place_menu_Do_Payment_Finish_CheckOpen_Place_menu_item_Delete_payment();
 			  //  Browser1_Place_menu_Browser2_addSeat_Place_menu_item();
@@ -109,7 +109,7 @@ public class Check_Menu_Missing_Method {
 			//Browser1_Place_menu_hold_Browser2_menu_sendToKitchen();
 			//Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_void_check();
 			// Browser1_CreateChecks_TransferAllItem_FromOneTable_To_AnotherTable_Browser2_TransferAllItem_FromOneTable_To_AnotherTable();	
-			 // Browser1_CreateChecks_Merge_Two_Checks_Browser2_Merge_Two_Checks();
+			 Browser1_CreateChecks_Merge_Two_Checks_Browser2_Merge_Two_Checks();
 			//  Transfer_server_In_Loop();
 			// Transfer_Table_In_Loop();
 			  //	Browser1_Create_100Checks_Browser2_Close_100Check();
