@@ -1,6 +1,7 @@
 package Linga;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.json.JSONException;
@@ -14,7 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class Check_Menu_Missing_Method {
 
-			static WebDriver driver;
+		static WebDriver driver;
 		static ArrayList<String> menuName= new ArrayList<String>();
 		static ArrayList<String> placedMenu= new ArrayList<String>();
 		static ArrayList<String> menuCheck= new ArrayList<String>();
@@ -31,7 +32,7 @@ public class Check_Menu_Missing_Method {
 
 
 		 static JSONObject jsonObject = new JSONObject();
-		static String checkNo1;
+		 static String checkNo1;
 
 
 
@@ -43,12 +44,12 @@ public class Check_Menu_Missing_Method {
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 			driver.get("https://web.lingapos.com/#/auth/login");
-			Thread.sleep(10000);
+			Thread.sleep(20000);
 			driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 			driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
-			Thread.sleep(8000);
+			Thread.sleep(10000);
 
 			for (int i = 0; i < 4; i++){
 				driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
@@ -56,10 +57,24 @@ public class Check_Menu_Missing_Method {
 				  }
 			  driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 			  Thread.sleep(2000);
+			  driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			  driver.findElement(By.xpath(".//linga-icon[@symbol=\"operations\"][1]")).click();
+			  driver.findElement(By.xpath(".//label[text()=\"Close Day\"]")).click();
+			  driver.findElement(By.xpath(".//button/span[text()=\"Close All Cashiers\"]")).click();
+			  try
+			  {
+				  driver.findElement(By.xpath(".//button/span[text()=\"Cash\"]")).click();
+				  Thread.sleep(8000);
+			  } catch (Exception e) {
+				  Thread.sleep(5000);
+			  }
+			  driver.findElement(By.xpath(".//linga-icon[@symbol=\"menu-icon\"]")).click();
+			  driver.findElement(By.xpath(".//label[text()=\"POS\"]")).click();
+		
 
 			  // closeTheDay();
 			  // Menumiss2G();
-			  // Menucheck();
+			 // Place_menuitem_Finish_loop();
 			  // activeAndClosed();
 			  // Categorymenucheck();
 			  // Active_Closed_Void();
@@ -82,10 +97,10 @@ public class Check_Menu_Missing_Method {
 			  // menuVoidLoop();
 			  // Place_menu_completepayment_closeCheck_Reopen_Check_placeMenu_closeSale();
 			  // Browser1_Place_menu__attachCustomer1_Browser2_Change_service_type_Place_menu_item_attachCustomer2();
-			// Place_Menu_Do_Payment_VoidPaymnet_DoAnotherPaymnet();
+			  // Place_Menu_Do_Payment_VoidPaymnet_DoAnotherPaymnet();
 			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_SideCC_payment();
-			  //Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_HA_payment();
-			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment();
+			 // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_HA_payment();
+			   Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment();
 
 			 //Place_menu_Do_Payment_Finish_CheckOpen_Place_menu_item_Delete_payment();
 			  //  Browser1_Place_menu_Browser2_addSeat_Place_menu_item();
@@ -95,11 +110,11 @@ public class Check_Menu_Missing_Method {
 			//Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_void_check();
 			// Browser1_CreateChecks_TransferAllItem_FromOneTable_To_AnotherTable_Browser2_TransferAllItem_FromOneTable_To_AnotherTable();	
 			 // Browser1_CreateChecks_Merge_Two_Checks_Browser2_Merge_Two_Checks();
-			  Transfer_server_In_Loop();
-			//  Transfer_Table_In_Loop();
-			//Browser1_Create_100Checks_Browser2_Close_100Check();
+			//  Transfer_server_In_Loop();
+			// Transfer_Table_In_Loop();
+			  //	Browser1_Create_100Checks_Browser2_Close_100Check();
 			 //Browser1_Create_100holdChecks_Browser2_send_100Check_ToKitchen();
-			 // Browser1_Create_100Checks_Browser2_void_100Check();
+			//  Browser1_Create_100Checks_Browser2_void_100Check();
 			//Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale();
 		 }
 		 
@@ -227,7 +242,7 @@ public class Check_Menu_Missing_Method {
 				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 				driver.switchTo().window(tabs.get(1));
 
-				driver.get("https://pre-webpos.lingapos.com/#/auth/pin");
+				driver.get("https://pre-webpos.lingapos.com/#/");
 				Thread.sleep(30000);
 				driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 				driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -242,9 +257,9 @@ public class Check_Menu_Missing_Method {
 				driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 				Thread.sleep(2000);
 				
-				//for (int j = 0; j < 50; j++){
-					driver.switchTo().window(tabs.get(0));
-					for (int k = 0; k < 100; k++){
+					for (int k = 0; k < 200; k++){
+						driver.switchTo().window(tabs.get(1));
+
 						driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 						
 						driver.findElement(By.xpath(".//*[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
@@ -282,7 +297,7 @@ public class Check_Menu_Missing_Method {
 						driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
 						Thread.sleep(1000);
 					}
-					driver.switchTo().window(tabs.get(1));
+					driver.switchTo().window(tabs.get(0));
 					for(int m=0;m<activeCheck.size();m++) {
 						driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 						
@@ -297,15 +312,19 @@ public class Check_Menu_Missing_Method {
 							Thread.sleep(1000);
 							driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(m)+"')]")).click();
 							driver.findElement(By.xpath(".//button[text()=\" Open check \"]")).click();
+							try {
+								driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+							}catch(Exception e) {
+								
+							}
+							
 							driver.findElement(By.xpath(".//div[text()=\"Void\"]")).click();
 						driver.findElement(By.xpath(".//textarea[contains(@class,\"mat-input-element mat-form\")]")).sendKeys("saran");
 						driver.findElement(By.xpath(".//button[text()=\"Add\"]")).click();
 						driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
 						Thread.sleep(1000);
 					}
-					
-					
-				//}
+										
 					driver.switchTo().window(tabs.get(0));
 
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
@@ -426,7 +445,7 @@ public class Check_Menu_Missing_Method {
 				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 				driver.switchTo().window(tabs.get(1));
 
-				driver.get("https://staging-webpos-india.lingapos.com/#/auth/login");
+				driver.get("https://pre-webpos.lingapos.com/#/auth/login");
 				Thread.sleep(30000);
 				driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 				driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -441,8 +460,6 @@ public class Check_Menu_Missing_Method {
 				driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 				Thread.sleep(2000);
 				
-				//for (int j = 0; j < 50; j++){
-					driver.switchTo().window(tabs.get(1));
 					for (int k = 0; k < 100; k++){
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 					
@@ -496,6 +513,11 @@ public class Check_Menu_Missing_Method {
 						Thread.sleep(1000);
 						driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(m)+"')]")).click();
 						driver.findElement(By.xpath(".//button[text()=\" Open check \"]")).click();
+						try {
+							driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+						}catch(Exception e) {
+							
+						}
 						driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
 						driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
 						driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
@@ -503,7 +525,7 @@ public class Check_Menu_Missing_Method {
 					}
 					
 					
-				//}
+				
 					driver.switchTo().window(tabs.get(1));
 
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
@@ -525,28 +547,60 @@ public class Check_Menu_Missing_Method {
 
 		private static void Transfer_Table_In_Loop() throws InterruptedException {
 
-			  driver.findElement(By.xpath(".//*[text()=\"T6 \"]")).click();
-			  driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
-			  driver.findElement(By.xpath(".//*[text()=\"Continue\"]")).click();
-			  Thread.sleep(2000);
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			
+			driver.findElement(By.xpath(".//*[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"DINE IN\"]")).click();
+			Thread.sleep(1000);
+			
+			driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
+			Thread.sleep(500);
+			
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			
 			  driver.findElement(By.xpath(".//*[text()=\"Chai\"]")).click();
 			  checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
 			  Thread.sleep(2000);
 			  driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
 			  Thread.sleep(1000);
-
 			  driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
 			  driver.findElement(By.xpath(".//*[text()=\"Transfer to Table\"]")).click();
-			  driver.findElement(By.xpath(".//*[text()=\"Floor 1-T6\"]")).click();
+			  int size = driver.findElements(By.xpath(".//*[contains(@class,\"tabletransfer-itemrow-transferfrom \")]/ul/div/div/div/span")).size();
+			 
+			  for(int j=1; j<size; j++) {
+				  try{
+				  driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+				  driver.findElement(By.xpath(".//*[text()=\"Transfer to Table\"]")).click();
+				  }
+				  catch(Exception e) {
+					  
+				  }
+			  driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferfrom\")]/ul/div/div/div/span)"+"["+j+"]")).click();
+				 
 			  driver.findElement(By.xpath(".//div/p[contains(.,'"+checkNo1+"')]")).click();
-			  JavascriptExecutor transto =(JavascriptExecutor) driver;
-			  WebElement check = driver.findElement(By.xpath(".//span[text()=\" Floor 2-T1\"]"));
-		      transto.executeScript("arguments[0].scrollIntoView();", check);
-		      check.click();
+			  driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferto\")]/ul/div/div/div/span)"+"["+j+"]")).click();
 			  driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
 			  Thread.sleep(1000);
 			  driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
-			
+			  }	
+			  driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+			  driver.findElement(By.xpath(".//*[text()=\"Transfer to Table\"]")).click();
+			 
+			  String tableNo = driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferfrom\")]/ul/div/div/div/span)"+"["+size+"]")).getText();
+			  driver.findElement(By.xpath(".//button[@class=\"cancel\"]")).click();
+			  driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();
+			  driver.findElement(By.xpath(".//button[text()=\"Active\"]")).click();
+			  Thread.sleep(500);
+
+			  driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(checkNo1);
+			  Thread.sleep(500);
+
+			  String tableName = driver.findElement(By.xpath("(.//tr/td)[1]")).getText();
+			  if(tableNo.contains(tableName)) {
+					 System.out.println("Check available in :" +tableName);
+			  }
+			 
 		}
 
 		private static void Transfer_server_In_Loop() throws InterruptedException {
@@ -563,27 +617,29 @@ public class Check_Menu_Missing_Method {
 			 checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
 			 Thread.sleep(2000);
 			 driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
-				 driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
-				 
-				 int size = driver.findElements(By.xpath(".//*[contains(@class,\"tabletransfer-itemrow-transferfrom \")]/ul/div/div/div/span")).size();
-				 for(int j=1; j<=size; j++) {
-					 String FromUserName = driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferfrom\")]/ul/div/div/div/span)"+"["+j+"]")).getText();
-					 TransferFrom.add(FromUserName);
-				 }
-				 System.out.println(TransferFrom);
+			 driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+		 
+			 int size = driver.findElements(By.xpath(".//*[contains(@class,\"tabletransfer-itemrow-transferfrom \")]/ul/div/div/div/span")).size();
+			 for(int j=1; j<=size; j++) {
+				 String FromUserName = driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferfrom\")]/ul/div/div/div/span)"+"["+j+"]")).getText();
+				 TransferFrom.add(FromUserName);
+				 	}
+			 System.out.println(TransferFrom);
 				
 
 				 
-				 String conts = "Shivam 1";
-				 for(int k =1; k<TransferFrom.size(); k++) {
-					 try {
-						 driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
-					 }catch(Exception e) {
+			 String conts = "Shivam 1";
+			 int count = 1;
+			 for(int k =1; k<TransferFrom.size(); k++) {
+				 try {
+					 driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+					 	}catch(Exception e) {
 						 
 					 }
 					 
 					 int index = TransferFrom.indexOf(conts);
-					 System.out.println(index);
+					 System.out.println("index"+index);
+
 					 index ++;
 					 TransferTo.clear();
 					 driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferfrom \")]/ul/div/div/div/span)"+"["+index+"]")).click();
@@ -594,16 +650,12 @@ public class Check_Menu_Missing_Method {
 					 }				 	
 					 System.out.println(TransferTo);	
 					 driver.findElement(By.xpath(".//div/p[contains(.,'"+checkNo1+"')]")).click();
-//						for(int m=1; m<= TransferTo.size();m++) {
-					 int count = 0;
-					 if(k == 2) {
-						 count = 1;
-						 k--;
-					 }
-						WebElement text =	 driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferto\")]/ul/div/div/div/span)"+"["+k+"]"));
+						for(int m=1; m<= TransferTo.size();m++) {
+
+						WebElement text = driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferto\")]/ul/div/div/div/span)"+"["+count+"]"));
 						text.click();
-						 if(k == 1 && count == 1) {
-							 k++;
+						 if(k >= 2) {
+							 count ++;
 						 }
 						conts = text.getText();
 						 driver.findElement(By.xpath(".//*[text()=\"Yes\"]")).click();
@@ -611,8 +663,8 @@ public class Check_Menu_Missing_Method {
 						  Thread.sleep(1000);
 						  driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
 					 
-//						break;
-//						}
+						break;
+						}
 				 }
 				 
 				 
@@ -884,8 +936,8 @@ public class Check_Menu_Missing_Method {
 				driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 				Thread.sleep(2000);
 				
-				for (int j = 0; j < 50; j++){
-					driver.switchTo().window(tabs.get(0));
+				for (int j = 0; j < 100; j++){
+					driver.switchTo().window(tabs.get(1));
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 					
 					driver.findElement(By.xpath(".//*[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
@@ -894,9 +946,11 @@ public class Check_Menu_Missing_Method {
 					Thread.sleep(1000);
 					
 					driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
-					Thread.sleep(500);
+					Thread.sleep(2000);
 					
 					driver.findElement(By.xpath(".//*[text()=\"T7 \"]")).click();
+					Thread.sleep(2000);
+
 					driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
 					JavascriptExecutor js = (JavascriptExecutor) driver;
 					WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
@@ -907,7 +961,7 @@ public class Check_Menu_Missing_Method {
 					
 					driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
 					Thread.sleep(1000);
-					driver.switchTo().window(tabs.get(1));
+					driver.switchTo().window(tabs.get(0));
 					
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 					
@@ -1339,7 +1393,7 @@ public class Check_Menu_Missing_Method {
 				  placedMenu.add(menu3.getText());
 				  driver.findElement(By.xpath(".//div[text()=\"Payment\"]")).click();
 
-					for(int i = 0; i<3; i++) {
+					for(int i = 0; i<10; i++) {
 
 				  driver.findElement(By.xpath(".//button[contains(text(),\"Rs.5.00\")]")).click();
 				  driver.findElement(By.xpath(".//button[contains(text(),\"Cash\")]")).click();
@@ -1366,16 +1420,17 @@ public class Check_Menu_Missing_Method {
 				  Thread.sleep(500);
 
 				  driver.findElement(By.xpath(".//ion-col[contains(text(),\"Side CC\")]")).click();
-				  Thread.sleep(1000);
 
 				  driver.findElement(By.xpath(".//button[contains(text(),\"Delete\")]")).click();
+				  Thread.sleep(1000);
+
 				  driver.findElement(By.xpath(".//ion-col[contains(text(),\"HA Payment\")]")).click();
 				  driver.findElement(By.xpath(".//button[contains(text(),\"Delete\")]")).click();
 				  Thread.sleep(1000);
 
 				  driver.findElement(By.xpath(".//ion-col[contains(text(),\"Gift Card\")]")).click();
 				  driver.findElement(By.xpath(".//button[contains(text(),\"Delete\")]")).click();
-				  Thread.sleep(1000);
+				  Thread.sleep(1500);
 
 					}
 				  driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
@@ -1415,7 +1470,7 @@ public class Check_Menu_Missing_Method {
 				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 				driver.switchTo().window(tabs.get(1));
 
-				driver.get("https://staging-webpos-india.lingapos.com/#/auth/login");
+				driver.get("https://pre-webpos.lingapos.com/#/auth/login");
 			Thread.sleep(30000);
 			driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 			driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -1540,7 +1595,7 @@ public class Check_Menu_Missing_Method {
 				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 				driver.switchTo().window(tabs.get(1));
 
-				driver.get("https://staging-webpos-india.lingapos.com/#/auth/login");
+				driver.get("https://pre-webpos.lingapos.com/#/auth/login");
 			Thread.sleep(30000);
 			driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 			driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -2241,7 +2296,7 @@ public class Check_Menu_Missing_Method {
 				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 				driver.switchTo().window(tabs.get(1));
 
-				driver.get("https://staging-webpos-india.lingapos.com/#/auth/login");
+				driver.get("https://pre-webpos.lingapos.com/#/auth/login");
 			Thread.sleep(30000);
 			driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 			driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -4211,18 +4266,23 @@ public class Check_Menu_Missing_Method {
 		}
 
 
-		private static void Menucheck() throws InterruptedException {
+		private static void Place_menuitem_Finish_loop() throws InterruptedException {
 			// TODO Auto-generated method stub
-			  driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 			driver.findElement(By.xpath(".//*[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
-			  Thread.sleep(500);
-			  driver.findElement(By.xpath(".//*[text()=\"DINE IN\"]")).click();
-			  Thread.sleep(1000);
-			  driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
-			  Thread.sleep(500);
-			  for(int i = 0; i<2; i++) {
-			  driver.findElement(By.xpath(".//*[text()=\"T5 \"]")).click();
-			  driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"DINE IN\"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
+			Thread.sleep(500);
+			for(int i = 0; i<200; i++) {
+				driver.findElement(By.xpath(".//*[text()=\"T5 \"]")).click();
+				try {
+			  		driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+			  	}catch(Exception e) {
+					
+				}
+				driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
 		        JavascriptExecutor js = (JavascriptExecutor) driver;
 		        WebElement menu1 = driver.findElement(By.xpath(".//div[contains(@class,\"ion-col fill-container   menuItem-col\")]/button/div[text()=\"Chai\"]"));
 		        js.executeScript("arguments[0].scrollIntoView();", menu1);
@@ -4240,35 +4300,38 @@ public class Check_Menu_Missing_Method {
 		        js2.executeScript("arguments[0].scrollIntoView();", menu1);
 		        menu1.click();
 		        placedMenu.add(menu1.getText());
+		        Thread.sleep(500);
 
-			  driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
-			  }
-			  driver.findElement(By.xpath(".//button/p[text()=\"T5 \"]")).click();
-			  Thread.sleep(1000);
-			  int item_count = driver.findElements(By.xpath(".//div[@class=\"orderlist-container  \"]")).size();
-			  System.out.println(item_count);
-			  if(item_count==placedMenu.size()) {
-				  System.out.println("Pass");
+		        driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
+			  	}
+			  
+			  	driver.findElement(By.xpath(".//button/p[text()=\"T5 \"]")).click();
+			  	try {
+			  		driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+			  	}catch(Exception e) {
+					
+				}
+			  	Thread.sleep(1000);
+			  	int item_count = driver.findElements(By.xpath(".//div[@class=\"orderlist-container  \"]")).size();
+			  	System.out.println(item_count);
+			  	if(item_count==placedMenu.size()) {
+			  		System.out.println("Pass");
 
-			  }
-			  for(int i=1 ;i<=item_count ; i++)	{
-				  String menuitemname = driver.findElement(By.xpath("(.//div[contains(@class,\"orderlist-menuname\")])" + "[" + i + "]")).getText();
-			  menuName.add(menuitemname);
-			  System.out.println(i);
-
-			  System.out.println(menuitemname);
-
+			  	}
+			  	for(int i=1 ;i<=item_count ; i++)	{
+			  		String menuitemname = driver.findElement(By.xpath("(.//div[contains(@class,\"orderlist-menuname\")])" + "[" + i + "]")).getText();
+			  		menuName.add(menuitemname);
+			  	
 			  		  }
-			  System.out.println(menuName);
-			 System.out.println(placedMenu);
-			  if(menuName.equals(placedMenu)) {
+			  	System.out.println(menuName);
+			  	System.out.println(placedMenu);
+			  	if(menuName==(placedMenu)) {
 				  System.out.println("Pass");
 
 			  }
 			  placedMenu.clear();
 			  menuName.clear();
-			  System.out.println(menuName);
-			  System.out.println(placedMenu);
+			
 			  driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
 			  driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
 
