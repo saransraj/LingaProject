@@ -43,7 +43,7 @@ public class Check_Menu_Missing_Method {
 
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-			driver.get("https://web.lingapos.com/#/auth/login");
+			driver.get(Utility.getProperty("Local_build_Url"));
 			Thread.sleep(20000);
 			driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 			driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -74,7 +74,7 @@ public class Check_Menu_Missing_Method {
 
 			  // closeTheDay();
 			  // Menumiss2G();
-			 // Place_menuitem_Finish_loop();
+			  // Place_menuitem_Finish_loop();
 			  // activeAndClosed();
 			  // Categorymenucheck();
 			  // Active_Closed_Void();
@@ -99,23 +99,22 @@ public class Check_Menu_Missing_Method {
 			  // Browser1_Place_menu__attachCustomer1_Browser2_Change_service_type_Place_menu_item_attachCustomer2();
 			  // Place_Menu_Do_Payment_VoidPaymnet_DoAnotherPaymnet();
 			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_SideCC_payment();
-			 // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_HA_payment();
+			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_HA_payment();
 			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment();
-
-			 //Place_menu_Do_Payment_Finish_CheckOpen_Place_menu_item_Delete_payment();
+			  // Place_menu_Do_Payment_Finish_CheckOpen_Place_menu_item_Delete_payment();
 			  //  Browser1_Place_menu_Browser2_addSeat_Place_menu_item();
-			//Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_close_Check();
-			//Place_menu_Do_hold_Loop();
-			//Browser1_Place_menu_hold_Browser2_menu_sendToKitchen();
-			//Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_void_check();
-			// Browser1_CreateChecks_TransferAllItem_FromOneTable_To_AnotherTable_Browser2_TransferAllItem_FromOneTable_To_AnotherTable();	
-			 Browser1_CreateChecks_Merge_Two_Checks_Browser2_Merge_Two_Checks();
-			//  Transfer_server_In_Loop();
-			// Transfer_Table_In_Loop();
-			  //	Browser1_Create_100Checks_Browser2_Close_100Check();
-			 //Browser1_Create_100holdChecks_Browser2_send_100Check_ToKitchen();
-			//  Browser1_Create_100Checks_Browser2_void_100Check();
-			//Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale();
+			  // Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_close_Check();
+			  // Place_menu_Do_hold_Loop();
+			  // Browser1_Place_menu_hold_Browser2_menu_sendToKitchen();
+			   Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_void_check();
+			  // Browser1_CreateChecks_TransferAllItem_FromOneTable_To_AnotherTable_Browser2_TransferAllItem_FromOneTable_To_AnotherTable();	
+			  // Browser1_CreateChecks_Merge_Two_Checks_Browser2_Merge_Two_Checks();
+			  // Transfer_server_In_Loop();
+			  // Transfer_Table_In_Loop();
+			  // Browser1_Create_100Checks_Browser2_Close_100Check();
+			  // Browser1_Create_100holdChecks_Browser2_send_100Check_ToKitchen();
+			  // Browser1_Create_100Checks_Browser2_void_100Check();
+			  // Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale();
 		 }
 		 
 		 private static void Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale() throws InterruptedException {
@@ -666,13 +665,7 @@ public class Check_Menu_Missing_Method {
 						break;
 						}
 				 }
-				 
-				 
-				 
-				
-
-				
-			 }
+		}
 		
 
 		private static void Browser1_CreateChecks_Merge_Two_Checks_Browser2_Merge_Two_Checks() throws InterruptedException {
@@ -701,7 +694,7 @@ public class Check_Menu_Missing_Method {
 			 driver.findElement(By.xpath("*//button[text()=\"All\"]")).click();
 			 Thread.sleep(500);
 			 driver.findElement(By.xpath("*//button/span[text()=\"Table layout\"]")).click();
-			 for(int i=1; i<= 10; i++ ) {
+			 for(int i=1; i<= 40; i++ ) {
 				 String tableName= "T";
 				 String fullTableName =  tableName.concat(String.valueOf(i));
 				 activeCheck.add(fullTableName);
@@ -743,22 +736,20 @@ public class Check_Menu_Missing_Method {
 						driver.switchTo().window(tabs.get(1));
 				 }
 				 driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
-					driver.findElement(By.xpath("*//button[text()=\"All\"]")).click();
-					Thread.sleep(500);
-					driver.findElement(By.xpath("*//button/span[text()=\"Table layout\"]")).click();
-					 driver.findElement(By.xpath(".//*[text()=\"Floor 2\"]")).click();
+				 driver.findElement(By.xpath("*//button[text()=\"All\"]")).click();
+				 Thread.sleep(500);
+				 driver.findElement(By.xpath("*//button/span[text()=\"Table layout\"]")).click();
+				 driver.findElement(By.xpath(".//*[text()=\"Floor 2\"]")).click();
 
 				 driver.findElement(By.xpath(".//div[text()=\"Merge\"]")).click();
 				 driver.findElement(By.xpath(".//ion-col[contains(@class,\"mergecheckmain-floatbtnmain\")]")).click();
 				 driver.findElement(By.xpath(".//button/p[contains(.,\"T1 \")]")).click();
-				 	
 				 driver.findElement(By.xpath(".//button/p[text()='"+activeCheck.get(j)+" ']")).click();
 				 driver.findElement(By.xpath(".//ion-col[contains(@class,\"mergecheckmain-floatbtnmain\")]")).click();
 				 driver.findElement(By.xpath(".//button[contains(text(),\"Done\")]")).click();
-				 Thread.sleep(2000);
+				 Thread.sleep(4000);
 				 driver.findElement(By.xpath(".//button[contains(text(),\"Done\")]")).click();
 				 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
-
 				}	
 			 	driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 				driver.findElement(By.xpath("*//button[text()=\"All\"]")).click();
@@ -936,39 +927,40 @@ public class Check_Menu_Missing_Method {
 				driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 				Thread.sleep(2000);
 				
-				for (int j = 0; j < 100; j++){
-					driver.switchTo().window(tabs.get(1));
+				for (int j = 0; j < 200; j++){
+					driver.switchTo().window(tabs.get(0));
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 					
 					driver.findElement(By.xpath(".//*[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
 					Thread.sleep(500);
 					driver.findElement(By.xpath(".//*[text()=\"DINE IN\"]")).click();
-					Thread.sleep(1000);
+					Thread.sleep(500);
 					
 					driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
-					Thread.sleep(2000);
-					
+
 					driver.findElement(By.xpath(".//*[text()=\"T7 \"]")).click();
-					Thread.sleep(2000);
+					Thread.sleep(500);
 
 					driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
 					JavascriptExecutor js = (JavascriptExecutor) driver;
 					WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
 					js.executeScript("arguments[0].scrollIntoView();", menu1);
 					menu1.click();
-					
+					Thread.sleep(1000);
+
 					driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
 					
 					driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
 					Thread.sleep(1000);
-					driver.switchTo().window(tabs.get(0));
+
+					driver.switchTo().window(tabs.get(1));
 					
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 					
 					driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
 					Thread.sleep(500);
 					driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
-					Thread.sleep(1000);
+					Thread.sleep(500);
 					
 					driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
 					driver.findElement(By.xpath(".//*[text()=\"T7 \"]")).click();
@@ -979,7 +971,6 @@ public class Check_Menu_Missing_Method {
 					driver.findElement(By.xpath(".//textarea[contains(@class,\"mat-input-element mat-form\")]")).sendKeys("saran");
 					driver.findElement(By.xpath(".//button[text()=\"Add\"]")).click();
 					driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
-					Thread.sleep(1000);
 				}
 					driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 				  	driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
