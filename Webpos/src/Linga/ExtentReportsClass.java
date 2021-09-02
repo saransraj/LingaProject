@@ -48,7 +48,7 @@ public class ExtentReportsClass{
                 .addSystemInfo("User Name", "Raja");
                 //loading the external xml file (i.e., extent-config.xml) which was placed under the base directory
                 //You could find the xml file below. Create xml file in your project and copy past the code mentioned below
-                extent.loadConfig(new File(System.getProperty("user.dir")+"\\extent-config.xml"));
+                extent.loadConfig(new File(System.getProperty("user.dir")+"\\ExtentConfig.xml"));
 	}
 
         //This method is to capture the screenshot and return the path of the screenshot.
