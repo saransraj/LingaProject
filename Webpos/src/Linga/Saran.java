@@ -1,5 +1,6 @@
 package Linga;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +30,7 @@ public class Saran {
 	static ArrayList<String> voidCheck= new ArrayList<String>();
 	static ArrayList<String> TransferFrom= new ArrayList<String>();
 	static ArrayList<String> TransferTo= new ArrayList<String>();
+	static ArrayList<String> Payments= new ArrayList<String>();
 
 	public void flushTest() throws Exception
 	{
@@ -45,10 +47,14 @@ public class Saran {
 			driver = new ChromeDriver();
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-			driver.get(Utility.getProperty("Production_URL"));
+			driver.get(Utility.getProperty("Staging_India_Url"));
 			Thread.sleep(15000);
-			driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Store_id"));
-			driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Store_password"));
+			try {
+	    		driver.findElement(By.xpath(".//button[text()=\"Sign In\"]")).click();
+			} catch (Exception e) {
+			}
+			driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Staging_Store_id"));
+			driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Staging_Store_password"));
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 			Thread.sleep(10000);
@@ -58,20 +64,20 @@ public class Saran {
 			}
 			driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 			Thread.sleep(2000);
-			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
-			driver.findElement(By.xpath(".//linga-icon[@symbol=\"operations\"][1]")).click();
-			driver.findElement(By.xpath(".//label[text()=\"Close Day\"]")).click();
-			driver.findElement(By.xpath(".//button/span[text()=\"Close All Cashiers\"]")).click();
-			try
-			{
-				driver.findElement(By.xpath(".//button/span[text()=\"Cash\"]")).click();
-				Thread.sleep(8000);
-			} catch (Exception e) {
-				Thread.sleep(5000);
-			}
-			driver.findElement(By.xpath(".//linga-icon[@symbol=\"menu-icon\"]")).click();
-			driver.findElement(By.xpath(".//label[text()=\"POS\"]")).click();
-			
+//			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+//			driver.findElement(By.xpath(".//linga-icon[@symbol=\"operations\"][1]")).click();
+//			driver.findElement(By.xpath(".//label[text()=\"Close Day\"]")).click();
+//			driver.findElement(By.xpath(".//button/span[text()=\"Close All Cashiers\"]")).click();
+//			try
+//			{
+//				driver.findElement(By.xpath(".//button/span[text()=\"Cash\"]")).click();
+//				Thread.sleep(8000);
+//			} catch (Exception e) {
+//				Thread.sleep(5000);
+//			}
+//			driver.findElement(By.xpath(".//linga-icon[@symbol=\"menu-icon\"]")).click();
+//			driver.findElement(By.xpath(".//label[text()=\"POS\"]")).click();
+//			
 			// Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale();
 			// Place_Menu_Split_item_SeatWise();
 			// Place_Menu_Split_item_Groupseat();
@@ -86,10 +92,10 @@ public class Saran {
 			// Browser1_PlaceMenu_Finish_Browser2_syncCheck_PlaceMenu_Finish();
 			// Browser1_syncCheck_activeCheck_Browser2_syncCheck_closeCheck();
 			// Browser1_holdCheck_Browser2_activeCheck_Browser1_closeCheck_Browser2_reopenCheck_VoidCheck();
-			// Browser1_CreateChecks_Transfercheck_FromOneTable_To_AnotherTable_Browser2_Transfercheck_FromOneTable_To_AnotherTable();
+			//Browser1_CreateChecks_Transfercheck_FromOneTable_To_AnotherTable_Browser2_Transfercheck_FromOneTable_To_AnotherTable();
 			// Browser1_CreateChecks_Transfercheck_FromOneserver_To_Anotherserver_Browser2_Transfercheck_FromOneserver_To_Anotherserver();
 			// Browser1_Create_50holdCheck_Browser2_Send_all_the_Hold_ChecktoKitchen_Browser1_closeAllTheCheck_Browser2_reopenAllTheCheck_VoidAllTheCheck();
-			// Browser1_Create_50Checks_Browser2_Merge_All_the_Checks();
+			//Browser1_Create_50Checks_Browser2_Merge_All_the_Checks();
 			// Browser1_Create_50Checks_Browser2_Transfer_menu_from_oneTable_to_another();
 			// Browser1_Create40plusChecks_Browser2_Merge_byTwo_Two_Checks();
 			// Browser1_CreateActiveChecks_Browser2_Transfercheck_FromOneTable_To_AnotherTable();
@@ -98,10 +104,10 @@ public class Saran {
 			// Create_50Check_Merge_two_Checks_and_closeIt_Loop();
 			// Create_50Check_Transfer_allTheMenuFromOneCheckToAnotherCheck_and_closeIt_Loop();
 			// Create_50Check_Transfer_CheckFromOneTableToAnotherTable_and_closeIt_Loop();
-			//  Create_50Checks_Merge_All_the_Checks_Transfer_merged_CheckFromOneServerToAnotherServer();
-			//  Create_50Checks_Merge_All_the_Checks_Transfer_merged_CheckFromOneTableToAnotherTable();
+			// Create_50Checks_Merge_All_the_Checks_Transfer_merged_CheckFromOneServerToAnotherServer();
+			// Create_50Checks_Merge_All_the_Checks_Transfer_merged_CheckFromOneTableToAnotherTable();
 			// CreateActiveChecks_Transfercheck_FromOneTable_To_AnotherTable_AndMerge_All_Checks();
-			// Browser1_Create_50Check_Browser2_Merge_two_Checks_and_closeIt_Loop_Browser1_ClosedChecksAreAvailableOrNot();
+			// Browser1_Create_multipleActiveChecks_Browser2_Merge_two_Checks_and_closeIt_Loop_Browser1_ClosedChecksAreAvailableOrNot();
 			// Create_TwoCheck_MergeIt_Again_Create_Check_MergeItWithAlreadyCreatedCheck();
 			// Browser1_Create_50Check_Browser2_Transfer_allTheMenuFromOneCheckToAnotherCheck_and_closeIt_LoopBrowser1_ClosedChecksAreAvailableOrNot();
 			// Browser1_Create_50Check_Browser2_Transfer_CheckFromOneTableToAnotherTable_and_closeIt_Loop_Browser1_ClosedChecksAreAvailableOrNot();
@@ -111,18 +117,2708 @@ public class Saran {
 			// Browser1_Create_TwoCheck_MergeIt_Browser2_Create_Check_MergeItWithAlreadyCreatedCheck();
 			// Place_menu_Do_payment_OpenSameCheck_PlaceMenu_Do_Payment();
 			// Place_menu_Do_payment_OpenSameCheck_PlaceMenu_DeletePayment_Do_Payment();
-			Browser1_Place_menu_Do_payment_Browser2_OpenSameCheck_PlaceMenu_DeletePayment_Do_Payment();
+			// Browser1_Place_menu_Do_payment_Browser2_OpenSameCheck_PlaceMenu_DeletePayment_Do_Payment();
+			// CreateCheck_TransfertablefromOnetableToAnotherTable_Create_Check_MergeBoththeCheck_Loop();
+			// CreateCheck_TransferitemfromOnetableToAnotherTable_Create_Check_MergeBoththeCheck_Loop();
+			// Create_Two_Check_merge_both_the_ChecksAndCloseIt();
+			// Browser1_CreateCheck_Browser2_TransfertablefromOnetableToAnotherTable_Browser1_Create_Check_MergeBoththeCheck_Loop();
+			// Browser1_CreateCheck_Browser2_TransferitemfromOnetableToAnotherTable_Browser1_Create_Check_MergeBoththeCheck_Loop();
+			// Create_Two_CheckWithPayment_merge_both_the_ChecksAndCloseIt();
+			// Create_Two_CheckWithTaxExempt_merge_both_the_ChecksAndCloseIt();
+			// Create_Two_CheckWithServiceExempt_merge_both_the_ChecksAndCloseIt();
+			// Create_TwoCheck_TransferAllTheMenuFromOneTableToAnotherTable2_OpenTransferredTableAndCloseTheCheck();
+			// Browser1_Create_Two_CheckWithPayment_Browser2_merge_both_the_ChecksAndCloseItInBrowser1();
+			// Browser1_Create_Two_CheckWithTaxExempt_Browser2_merge_both_the_ChecksAndCloseItBrowser1();
+			// Browser1_create_Two_checksWithServiceExempt_Browser2_merge_both_the_ChecksAndCloseIt();
+			// Browser1_Create_TwoCheck_Browser2_TransferAllTheMenuFromOneTableToAnotherTable2_Browser1_OpenTransferredTableAndCloseTheCheck();
+			// Create_ActiveCheck_TransferTable_Create_ActiveCheck_TransferMenuItem_inLoop();
+			// Create_TwoActiveCheck_MergeBothChecks_Again_Create_TwoActiveCheck_MergeBothChecks_MergeAllTheMergedChecks();
+			// CreateCheck_AddExistingCustomer_DoRepeatOrder_CloseCheck();
+			//	CreateCheck_AddExistingCustomer_DoRepeatOrder_VoidCheck();
+			// CreateCheck_AddExistingCustomer_placemenu_CloseCheck();
+			// CreateCheck_AddExistingCustomer_placemenu_VoidCheck();
+			// CreateCheck_AddExistingCustomer_placemenu_closeCheck_ReopenCheck_Void_Payment_Void_Check();
+			// Create50CheckWith_AddExistingCustomer_DoRepeatOrder_CloseCheck_Again_ReopenAllTheCheck_Void_Payment_Void_Check();
+			 CreateCheckWith_AddExistingCustomer_DoRepeatOrder_CloseCheck_Again_ReopenTheCheck_Void_Payment_Void_Check();
+			// QSR_PlaceMenu_DoCashPayment_Submit_Reopen_DeleteCashPayment_DoSideCCPayment_Loop();
+			
 	}
+			 
+   public static  void QSR_PlaceMenu_DoCashPayment_Submit_Reopen_DeleteCashPayment_DoSideCCPayment_Loop() throws InterruptedException {
+	   driver.findElement(By.xpath(".//button[text()=\"Cancel\"]")).click();
+	   driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+	   JavascriptExecutor js = (JavascriptExecutor) driver;
+	   WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+	   js.executeScript("arguments[0].scrollIntoView();", menu1);
+	   menu1.click();
+	   JavascriptExecutor js1 = (JavascriptExecutor) driver;
+	   menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+	   js1.executeScript("arguments[0].scrollIntoView();", menu1);
+	   menu1.click();
+	   JavascriptExecutor js2 = (JavascriptExecutor) driver;
+	   menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+	   js2.executeScript("arguments[0].scrollIntoView();", menu1);
+	   menu1.click();
+	   String checkNo11 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+	   activeCheck.add(checkNo11);
+	   driver.findElement(By.xpath(".//div[text()=\"Payment\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"Cash\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+	   Thread.sleep(500);
+	   for(int k=0; k<1;k++) {
+	   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();	  
+	   driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+	   Thread.sleep(1000);
+	   driver.findElement(By.xpath(".//button[text()=\"Active\"]")).click();
+	   Thread.sleep(1000);
+	   driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+	   Thread.sleep(1000);
+	   driver.findElement(By.xpath(".//div/input[@data-placeholder=\"Check No\"]")).sendKeys(checkNo11);
+	   Thread.sleep(2000);
+	   driver.findElement(By.xpath(".//tr/td[contains(.,'"+checkNo11+"')]")).click();
+	   driver.findElement(By.xpath(".//button[contains(text(),\" Re-open Check \")]")).click();
+	   Thread.sleep(4000);
+	   driver.findElement(By.xpath(".//div[contains(text(),\"Payment\")]")).click();
+	   driver.findElement(By.xpath(".//ion-row[@class=\"ng-star-inserted md hydrated\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"Delete\"]")).click();
+	   Thread.sleep(4000);
+	   driver.findElement(By.xpath(".//button[text()=\"Side CC\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+	   Thread.sleep(500);
+	   }
+	   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();	  
+	   driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+	   Thread.sleep(1000);
+	   driver.findElement(By.xpath(".//button[text()=\"Active\"]")).click();
+	   Thread.sleep(1000);
+	   driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+	   Thread.sleep(1000);
+	   driver.findElement(By.xpath(".//div/input[@data-placeholder=\"Check No\"]")).sendKeys(checkNo11);
+	   Thread.sleep(8000);
+	   driver.findElement(By.xpath(".//tr/td[contains(.,'"+checkNo11+"')]")).click();
+	   driver.findElement(By.xpath(".//button[contains(text(),\" Re-open Check \")]")).click();
+	   Thread.sleep(4000);
+	   driver.findElement(By.xpath(".//div[contains(text(),\"Payment\")]")).click();
+	   int item_count5 = driver.findElements(By.xpath(".//div/ion-row")).size();
+ 		for(int i=1 ;i<=item_count5 ; i++)	{
+ 			JavascriptExecutor js4 = (JavascriptExecutor) driver;
+ 			boolean dte = i >= 2 ? true : false ;
+ 			if (!!dte) {
+ 				i=i+2;
+ 			WebElement menuitemname = driver.findElement(By.xpath("(.//div/ion-row/ion-col)" + "[" + i + "]"));
+ 			i=i-2;
+ 			js4.executeScript("arguments[0].scrollIntoView();", menuitemname);
+ 			Payments.add(menuitemname.getText());
+ 			}
+ 			else {
+ 	 		WebElement menuitemname = driver.findElement(By.xpath("(.//div/ion-row/ion-col)" + "[" + i + "]"));
+ 	 		js4.executeScript("arguments[0].scrollIntoView();", menuitemname);
+ 			Payments.add(menuitemname.getText());
+			}
+		}
+ 		System.out.println(Payments.get(0));
+ 	    String Payment1 = "Side CC(#1)";
+ 		if (Payment1.equals(Payments.toString())) {
+			System.out.println("Payments available");
+		} else {
+			System.out.println("Menus not available");
+		}
+	}	
+
+   public static void CreateCheckWith_AddExistingCustomer_DoRepeatOrder_CloseCheck_Again_ReopenTheCheck_Void_Payment_Void_Check() throws InterruptedException {
+	   for(int i= 0; i<100; i++) {
+		   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			  
+		   driver.findElement(By.xpath(".//linga-icon[@symbol=\"add-user\"]")).click();
+		   driver.findElement(By.xpath(".//div[contains(text(),\"YO YO\")]")).click();
+		   Thread.sleep(1000);
+
+		   driver.findElement(By.xpath(".//p[contains(text(),\"YO Y\")]")).click();
+		   Thread.sleep(5000);
+		   try {
+			   driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();			
+			
+		} catch (Exception e) {
+		}
+
+		   JavascriptExecutor js = (JavascriptExecutor) driver;
+		   WebElement customer = driver.findElement(By.xpath(".//label[text()=\"Previous Orders\"]"));
+		   js.executeScript("arguments[0].scrollIntoView();", customer);
+		   
+		   driver.findElement(By.xpath("(.//ion-list/ion-item[@class=\"ng-star-inserted item md in-list ion-focusable hydrated\"])[1]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"Repeat Order\"]")).click();
+		   Thread.sleep(4000);
+		   checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		   activeCheck.add(checkNo1);
+		   
+		   driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+		   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+		   Thread.sleep(500);
+		   driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();
+		   Thread.sleep(1000);
+		   driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+		   Thread.sleep(1000);
+		   driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(i));
+		   Thread.sleep(5000);
+		   driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(i)+"')]")).click();
+		   driver.findElement(By.xpath(".//button[contains(text(),\" Re-open Check \")]")).click();
+		   Thread.sleep(10000);
+		   driver.findElement(By.xpath(".//div[contains(text(),\"Payment\")]")).click();
+		   driver.findElement(By.xpath(".//ion-row[@class=\"ng-star-inserted md hydrated\"]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"Delete\"]")).click();
+		   Thread.sleep(3000);
+		   driver.findElement(By.xpath(".//button[text()=\"Exit\"]")).click();
+		   driver.findElement(By.xpath(".//div[text()=\"Void\"]")).click();
+		   driver.findElement(By.xpath(".//textarea[contains(@class,\"mat-input-element mat-form\")]")).sendKeys("saran");
+		   driver.findElement(By.xpath(".//button[text()=\"Add\"]")).click();
+		   Thread.sleep(1000);
+		   
+	   }	
+	   		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+	   		driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+	   		for(int i=0; i<activeCheck.size(); i++){
+			driver.findElement(By.xpath(".//button[text()=\"Void\"]")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(".//div/input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(i));
+			Thread.sleep(1000);
+			String voidcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(i)+"')]")).getText();
+			voidCheck.add(voidcheckno);
+		}
+	   		System.out.println(activeCheck);
+	   		System.out.println(voidCheck);
+	   		if(activeCheck.equals(voidCheck)) {
+			System.out.println("All the checks available");
+		}
+ 		 
+  
+	}
+
+public static void Create50CheckWith_AddExistingCustomer_DoRepeatOrder_CloseCheck_Again_ReopenAllTheCheck_Void_Payment_Void_Check() throws InterruptedException {
+	   for(int i= 1; i<=50; i++) {
+		   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		  
+		   driver.findElement(By.xpath(".//linga-icon[@symbol=\"add-user\"]")).click();
+		   driver.findElement(By.xpath(".//div[contains(text(),\"YO YO\")]")).click();
+		   Thread.sleep(1000);
+
+		   driver.findElement(By.xpath(".//p[contains(text(),\"YO Y\")]")).click();
+		   Thread.sleep(5000);
+		   try {
+			   driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();			
+		} catch (Exception e) {
+		}
+		   JavascriptExecutor js = (JavascriptExecutor) driver;
+		   WebElement customer = driver.findElement(By.xpath(".//label[text()=\"Previous Orders\"]"));
+		   js.executeScript("arguments[0].scrollIntoView();", customer);
+		   
+		   driver.findElement(By.xpath("(.//ion-list/ion-item[@class=\"ng-star-inserted item md in-list ion-focusable hydrated\"])[1]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"Repeat Order\"]")).click();
+		   Thread.sleep(7000);
+		   checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		   activeCheck.add(checkNo1);
+		   
+		   driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+		   }
+	   for(int m= 0; m<activeCheck.size() ;m++) {
+		   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			 Thread.sleep(500);
+			 driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(m));
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(m)+"')]")).click();
+			 driver.findElement(By.xpath(".//button[contains(text(),\" Re-open Check \")]")).click();
+			 Thread.sleep(5000);
+			 driver.findElement(By.xpath(".//div[contains(text(),\"Payment\")]")).click();
+			 driver.findElement(By.xpath(".//ion-row[@class=\"ng-star-inserted md hydrated\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"Delete\"]")).click();
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath(".//button[text()=\"Exit\"]")).click();
+			 driver.findElement(By.xpath(".//div[text()=\"Void\"]")).click();
+			 driver.findElement(By.xpath(".//textarea[contains(@class,\"mat-input-element mat-form\")]")).sendKeys("saran");
+			 driver.findElement(By.xpath(".//button[text()=\"Add\"]")).click();
+			 Thread.sleep(1000);
+			
+			}			
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			for(int i=0; i<activeCheck.size(); i++){
+				driver.findElement(By.xpath(".//button[text()=\"Void\"]")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(".//div/input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(i));
+				Thread.sleep(1000);
+				String voidcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(i)+"')]")).getText();
+				voidCheck.add(voidcheckno);
+			}
+			System.out.println(activeCheck);
+			System.out.println(voidCheck);
+			if(activeCheck.equals(voidCheck)) {
+				System.out.println("All the checks available");
+			}
+
+
+	}
+
+   public static void CreateCheck_AddExistingCustomer_placemenu_closeCheck_ReopenCheck_Void_Payment_Void_Check() throws InterruptedException {
+	   for(int i= 1; i<=100; i++) {
+		   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		   driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		   Thread.sleep(500);
+		   driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		   driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		   Thread.sleep(1000);
+		   driver.findElement(By.xpath(".//linga-icon[@symbol=\"add-user\"]")).click();
+		   driver.findElement(By.xpath(".//div[contains(text(),\"Chinnu Saran\")]")).click();
+		   Thread.sleep(1000);
+
+		   driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		   JavascriptExecutor js = (JavascriptExecutor) driver;
+		   WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		   js.executeScript("arguments[0].scrollIntoView();", menu1);
+		   menu1.click();
+		   placedMenu.add(menu1.getText());
+				
+		   menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		   js.executeScript("arguments[0].scrollIntoView();", menu1);
+		   menu1.click();
+		   placedMenu.add(menu1.getText());
+			 
+		   menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		   js.executeScript("arguments[0].scrollIntoView();", menu1);
+		   menu1.click();
+		   placedMenu.add(menu1.getText());
+		   Thread.sleep(1000);
+		   checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		   activeCheck.add(checkNo1);
+		   driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+		   }
+		   for(int m= 0; m<100 ;m++) {
+		   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			 Thread.sleep(500);
+			 driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(m));
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(m)+"')]")).click();
+			 driver.findElement(By.xpath(".//button[contains(text(),\" Re-open Check \")]")).click();
+			 Thread.sleep(5000);
+			 driver.findElement(By.xpath(".//div[contains(text(),\"Payment\")]")).click();
+			 driver.findElement(By.xpath(".//ion-row[@class=\"ng-star-inserted md hydrated\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"Delete\"]")).click();
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath(".//button[text()=\"Exit\"]")).click();
+			 driver.findElement(By.xpath(".//div[text()=\"Void\"]")).click();
+			 driver.findElement(By.xpath(".//textarea[contains(@class,\"mat-input-element mat-form\")]")).sendKeys("saran");
+			 driver.findElement(By.xpath(".//button[text()=\"Add\"]")).click();
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
+			 Thread.sleep(1000);
+			}			
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			for(int i=0; i<activeCheck.size(); i++){
+				driver.findElement(By.xpath(".//button[text()=\"Void\"]")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(".//div/input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(i));
+				Thread.sleep(1000);
+				String voidcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(i)+"')]")).getText();
+				voidCheck.add(voidcheckno);
+			}
+			System.out.println(activeCheck);
+			System.out.println(voidCheck);
+			if(activeCheck.equals(voidCheck)) {
+				System.out.println("All the checks available");
+			}
+
+	}
+
+public static void CreateCheck_AddExistingCustomer_placemenu_VoidCheck() throws InterruptedException {
+	   for(int i= 1; i<=100; i++) {
+		   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		   driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		   Thread.sleep(500);
+		   driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		   driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		   Thread.sleep(1000);
+		   driver.findElement(By.xpath(".//linga-icon[@symbol=\"add-user\"]")).click();
+		   driver.findElement(By.xpath(".//div[contains(text(),\"Chinnu Saran\")]")).click();
+		   Thread.sleep(1000);
+
+		   driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		   JavascriptExecutor js = (JavascriptExecutor) driver;
+		   WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		   js.executeScript("arguments[0].scrollIntoView();", menu1);
+		   menu1.click();
+		   placedMenu.add(menu1.getText());
+				
+		   menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		   js.executeScript("arguments[0].scrollIntoView();", menu1);
+		   menu1.click();
+		   placedMenu.add(menu1.getText());
+			 
+		   menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		   js.executeScript("arguments[0].scrollIntoView();", menu1);
+		   menu1.click();
+		   placedMenu.add(menu1.getText());
+		   Thread.sleep(1000);
+		   checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		   activeCheck.add(checkNo1);
+		   driver.findElement(By.xpath(".//div[text()=\"Order\"]")).click();
+		   driver.findElement(By.xpath(".//div[text()=\"Void\"]")).click();
+		   driver.findElement(By.xpath(".//textarea[contains(@class,\"mat-input-element mat-form\")]")).sendKeys("saran");
+		   driver.findElement(By.xpath(".//button[text()=\"Add\"]")).click();
+		   Thread.sleep(1000);
+		   driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
+		   Thread.sleep(1000);
+			}
+			
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			for(int i=0; i<activeCheck.size(); i++){
+				driver.findElement(By.xpath(".//button[text()=\"Void\"]")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(".//div/input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(i));
+				Thread.sleep(1000);
+				String voidcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(i)+"')]")).getText();
+				voidCheck.add(voidcheckno);
+			}
+			System.out.println(activeCheck);
+			System.out.println(voidCheck);
+			if(activeCheck.equals(voidCheck)) {
+				System.out.println("All the checks available");
+			}
+	}
+
+  public static void CreateCheck_AddExistingCustomer_placemenu_CloseCheck() throws InterruptedException {
+	   for(int i= 1; i<=100; i++) {
+	   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+	   driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+	   Thread.sleep(500);
+	   driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+	   driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+	   Thread.sleep(1000);
+	   driver.findElement(By.xpath(".//linga-icon[@symbol=\"add-user\"]")).click();
+	   driver.findElement(By.xpath(".//div[contains(text(),\"Chinnu Saran\")]")).click();
+	   Thread.sleep(1000);
+
+	   driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+	   JavascriptExecutor js = (JavascriptExecutor) driver;
+	   WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+	   js.executeScript("arguments[0].scrollIntoView();", menu1);
+	   menu1.click();
+	   placedMenu.add(menu1.getText());
+			
+	   menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+	   js.executeScript("arguments[0].scrollIntoView();", menu1);
+	   menu1.click();
+	   placedMenu.add(menu1.getText());
+		 
+	   menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+	   js.executeScript("arguments[0].scrollIntoView();", menu1);
+	   menu1.click();
+	   placedMenu.add(menu1.getText());
+	   Thread.sleep(1000);
+	   checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+	   activeCheck.add(checkNo1);
+	   driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+	   }
+	   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+	   driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();
+	   for(int k=0; k<activeCheck.size(); k++) {
+		  	
+		   driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+		   Thread.sleep(500);
+		   driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+		   Thread.sleep(2000);
+		   String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+		   closedCheck.add(closedcheckno);	 
+		}
+	
+		System.out.println(activeCheck);
+		System.out.println(closedCheck);
+
+	if(activeCheck.equals(closedCheck))
+	{
+		System.out.println("Checks available");
+	}
+	}
+
+public static void CreateCheck_AddExistingCustomer_DoRepeatOrder_VoidCheck() throws InterruptedException {
+	   for(int i= 1; i<=100; i++) {
+		   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		   driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		   Thread.sleep(500);
+		   driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		   driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		   Thread.sleep(1000);
+		   driver.findElement(By.xpath(".//linga-icon[@symbol=\"add-user\"]")).click();
+		   driver.findElement(By.xpath(".//div[contains(text(),\"Chinnu Saran\")]")).click();
+		   Thread.sleep(1000);
+
+		   driver.findElement(By.xpath(".//p[contains(text(),\"Chinnu S\")]")).click();
+		   Thread.sleep(2000);
+
+		   JavascriptExecutor js = (JavascriptExecutor) driver;
+		   WebElement customer = driver.findElement(By.xpath(".//label[text()=\"Previous Orders\"]"));
+		   js.executeScript("arguments[0].scrollIntoView();", customer);
+		   
+		   driver.findElement(By.xpath("(.//ion-list/ion-item[@class=\"ng-star-inserted item md in-list ion-focusable hydrated\"])[1]")).click();
+		   driver.findElement(By.xpath(".//button[text()=\"Repeat Order\"]")).click();
+		   Thread.sleep(4000);
+		   checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		   activeCheck.add(checkNo1);
+		   driver.findElement(By.xpath(".//div[text()=\"Order\"]")).click();
+		   driver.findElement(By.xpath(".//div[text()=\"Void\"]")).click();
+		   driver.findElement(By.xpath(".//textarea[contains(@class,\"mat-input-element mat-form\")]")).sendKeys("saran");
+		   driver.findElement(By.xpath(".//button[text()=\"Add\"]")).click();
+		   Thread.sleep(1000);
+		   driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
+		   Thread.sleep(1000);
+			}
+			
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			for(int i=0; i<activeCheck.size(); i++){
+				driver.findElement(By.xpath(".//button[text()=\"Void\"]")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(".//div/input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(i));
+				Thread.sleep(1000);
+				String voidcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(i)+"')]")).getText();
+				voidCheck.add(voidcheckno);
+			}
+			System.out.println(activeCheck);
+			System.out.println(voidCheck);
+			if(activeCheck.equals(voidCheck)) {
+				System.out.println("All the checks available");
+			}
+
+	}
+
+public static void CreateCheck_AddExistingCustomer_DoRepeatOrder_CloseCheck() throws InterruptedException {
+	   for(int i= 1; i<=100; i++) {
+	   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+	   driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+	   Thread.sleep(500);
+	   driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+	   driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+	   Thread.sleep(1000);
+	   driver.findElement(By.xpath(".//linga-icon[@symbol=\"add-user\"]")).click();
+	   driver.findElement(By.xpath(".//div[contains(text(),\"Chinnu Saran\")]")).click();
+	   Thread.sleep(1000);
+
+	   driver.findElement(By.xpath(".//p[contains(text(),\"Chinnu S\")]")).click();
+	   Thread.sleep(2000);
+
+	   JavascriptExecutor js = (JavascriptExecutor) driver;
+	   WebElement customer = driver.findElement(By.xpath(".//label[text()=\"Previous Orders\"]"));
+	   js.executeScript("arguments[0].scrollIntoView();", customer);
+	   
+	   driver.findElement(By.xpath("(.//ion-list/ion-item[@class=\"ng-star-inserted item md in-list ion-focusable hydrated\"])[1]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"Repeat Order\"]")).click();
+	   Thread.sleep(4000);
+	   checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+	   activeCheck.add(checkNo1);
+	   
+	   driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+	   }
+	   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+	   driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+	   driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();
+	   for(int k=0; k<activeCheck.size(); k++) {
+		  	
+		   driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+		   Thread.sleep(500);
+		   driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+		   Thread.sleep(2000);
+		   String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+		   closedCheck.add(closedcheckno);	 
+		}
+	
+		System.out.println(activeCheck);
+		System.out.println(closedCheck);
+
+	if(activeCheck.equals(closedCheck))
+	{
+		System.out.println("Checks available");
+	}
+		
+	}
+
+
+	   
+
+public static void Create_TwoActiveCheck_MergeBothChecks_Again_Create_TwoActiveCheck_MergeBothChecks_MergeAllTheMergedChecks() throws InterruptedException {
+	  for(int i= 1; i<=40; i++) {
+		  try {
+			  driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+				driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+				driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
+		} catch (Exception e) {
+		}
+		 String tableName= "T";
+		 String fullTableName =  tableName.concat(String.valueOf(i));
+		 item.add(fullTableName);
+		 driver.findElement(By.xpath(".//*[text()=\"Floor 2\"]")).click();
+		 Thread.sleep(500);
+		 driver.findElement(By.xpath(".//div[text()=\"New Check\"]")).click();
+		 driver.findElement(By.xpath(".//*[contains(text(),'"+fullTableName+"')]")).click();
+		 driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+		 driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+		 Thread.sleep(500);
+		 driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		 js.executeScript("arguments[0].scrollIntoView();", menu1);
+		 menu1.click();
+		 placedMenu.add(menu1.getText());
+			
+		 menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		 js.executeScript("arguments[0].scrollIntoView();", menu1);
+		 menu1.click();
+		 placedMenu.add(menu1.getText());
+			
+		 menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		 js.executeScript("arguments[0].scrollIntoView();", menu1);
+		 menu1.click();
+		 placedMenu.add(menu1.getText());
+		 Thread.sleep(1000);
+		 checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		 activeCheck.add(checkNo1);
+		 driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		 if(i%2==0){
+			 driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+			 driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+			 i=i-2;		
+			 driver.findElement(By.xpath(".//*[contains(text(),'"+item.get(i)+"')]")).click();
+			 i=i+1;
+			 try
+			 {
+				 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			 driver.findElement(By.xpath(".//*[contains(text(),'"+item.get(i)+"')]")).click();
+			 try
+			 {
+				 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+				 
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+			i=i+1;
+			}
+	  		}
+	  		driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+	  		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+	  		driver.findElement(By.xpath(".//*[contains(text(),\"T1\")]")).click();
+	  		try
+	  		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+	  		} catch (Exception e) {
+	  		}
+	  		Thread.sleep(500);
+
+	  		for(int j = 2; j<40;j++)
+	  		{
+	  			if(j%2!=0) {
+	  				j--;
+	  				driver.findElement(By.xpath(".//*[contains(text(),'"+item.get(j)+"')]")).click();
+	  		try
+	  		{
+	  			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+	  		} catch (Exception e) {
+	  		}
+	  		j++;
+	  		}
+	  		}
+	  		Thread.sleep(1000);
+	  		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+	  		Thread.sleep(500);
+	  		driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+	  		Thread.sleep(4000);
+	  		driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+	  		Thread.sleep(500);
+	  		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+	  		try
+	  		{
+	  			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+	  				
+	  		} catch (Exception e) {
+	  		}
+	  		int item_count4 = driver.findElements(By.xpath(".//div[contains(@class,\"orderlist-container  \")]")).size();
+	  		for(int i=1 ;i<=item_count4 ; i++)	{
+	  			JavascriptExecutor js4 = (JavascriptExecutor) driver;
+	  			WebElement menuitemname = driver.findElement(By.xpath("(.//div[contains(@class,\"orderlist-menuname\")])" + "[" + i + "]"));
+	  			js4.executeScript("arguments[0].scrollIntoView();", menuitemname);
+	  			menuName.add(menuitemname.getText());
+				}
+			
+				System.out.println(placedMenu);
+				System.out.println(menuName);
+
+				if(placedMenu.equals(menuName)) {
+					System.out.println("Menu items available - Pass");
+				}
+				else {
+					System.out.println("Menu available - fail");
+				}
+			
+				placedMenu.clear();
+				menuName.clear();
+				driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+				driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click(); 
+	  
+	}
+
+   public static void Create_ActiveCheck_TransferTable_Create_ActiveCheck_TransferMenuItem_inLoop() throws InterruptedException {
+	   driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		for(int i = 0; i<10 ; i++) {
+		driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Transfer to Table\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Floor 1-T1\"]")).click();
+
+		driver.findElement(By.xpath(".//div/p[contains(.,'"+activeCheck.get(i)+"')]")).click();
+		 
+		driver.findElement(By.xpath(".//ion-col[@class=\"tabletransfer-itemrow-transferto ion-no-padding md hydrated\"]//ul//div//div/div//span[text()=\" Floor 1-T2\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
+		
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Transfer item\"]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//span[contains(text(),\"T2\")]")).click();
+		int checkSize = driver.findElements(By.xpath(".//ion-col[@class=\"menu-name ion-text-left md hydrated\"]")).size();
+		for(int j=1 ;j<=checkSize ; j++)	{
+		driver.findElement(By.xpath("(.//ion-col[@class=\"menu-name ion-text-left md hydrated\"])" + "[" + j + "]")).click();
+		}
+		driver.findElement(By.xpath("(.//span[contains(text(),\"T1\")])[2]")).click();
+		driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+		Thread.sleep(1500);
+		driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
+		Thread.sleep(500);	
+		}
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		int item_count4 = driver.findElements(By.xpath(".//div[contains(@class,\"orderlist-container  \")]")).size();
+		for(int i=1 ;i<=item_count4 ; i++)	{
+			JavascriptExecutor js4 = (JavascriptExecutor) driver;
+			WebElement menuitemname = driver.findElement(By.xpath("(.//div[contains(@class,\"orderlist-menuname\")])" + "[" + i + "]"));
+			js4.executeScript("arguments[0].scrollIntoView();", menuitemname);
+			menuName.add(menuitemname.getText());
+		}
+	
+		System.out.println(placedMenu);
+		System.out.println(menuName);
+
+		if(placedMenu.equals(menuName)) {
+			System.out.println("Menu items available - Pass");
+		}
+		else {
+			System.out.println("Menu available - fail");
+		}
+	
+		placedMenu.clear();
+		menuName.clear();
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+
+		   
+	}
+
+public static void Browser1_Create_TwoCheck_Browser2_TransferAllTheMenuFromOneTableToAnotherTable2_Browser1_OpenTransferredTableAndCloseTheCheck() throws Exception {
+	   ((JavascriptExecutor) driver).executeScript("window.open()");
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+				
+		driver.get(Utility.getProperty("Pre_Prod_Url"));
+		Thread.sleep(30000);
+		driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Store_id"));
+		driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Store_password"));
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(6000);
+		
+		for (int i = 0; i < 4; i++){
+			driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
+			Thread.sleep(500);
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(2000);
+
+
+	   for(int j = 0; j<5 ; j++) {
+			driver.switchTo().window(tabs.get(0));
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js2 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			Thread.sleep(1000);
+			String itemcheckno1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(itemcheckno1);
+
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+			Thread.sleep(500);
+			JavascriptExecutor js3 = (JavascriptExecutor) driver;
+			WebElement menu3 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js3.executeScript("arguments[0].scrollIntoView();", menu3);
+			menu3.click();
+			placedMenu.add(menu3.getText());
+			
+			menu3 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js3.executeScript("arguments[0].scrollIntoView();", menu3);
+			menu3.click();
+			placedMenu.add(menu3.getText());
+			
+			menu3 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js3.executeScript("arguments[0].scrollIntoView();", menu3);
+			menu3.click();
+			placedMenu.add(menu3.getText());
+
+			Thread.sleep(1000);
+			String itemcheckno2 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(itemcheckno2);
+
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			Thread.sleep(1000);
+			driver.switchTo().window(tabs.get(1));
+			try {
+				driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+				driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+				driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
+				
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+			driver.findElement(By.xpath(".//*[text()=\"Transfer item\"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//span[contains(text(),\"T1\")]")).click();
+			int checkSize = driver.findElements(By.xpath(".//ion-col[@class=\"menu-name ion-text-left md hydrated\"]")).size();
+			for(int i=1 ;i<=checkSize ; i++)	{
+				driver.findElement(By.xpath("(.//ion-col[@class=\"menu-name ion-text-left md hydrated\"])" + "[" + i + "]")).click();
+			}
+			driver.findElement(By.xpath("(.//span[contains(text(),\"T2\")])[2]")).click();
+			driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
+			Thread.sleep(500);
+			
+			driver.switchTo().window(tabs.get(0));
+			driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		try {
+			driver.findElement(By.xpath("(.//ion-content[contains(@class,\"table-multiple-checks-content\")]/ion-grid/ion-row/div)[1]")).click();
+			Thread.sleep(1000);
+		 }catch(Exception e) {
+		 			 }
+		 try
+		 {
+			 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+			 
+		 }	 catch (Exception e) {
+		 }
+		 driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+		 driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+		 Thread.sleep(500);
+		 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+		
+	   }
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+	 	driver.findElement(By.xpath("*//button[text()=\"All\"]")).click();
+	 	Thread.sleep(500);
+	 	
+	 	for(int k=0; k<activeCheck.size(); k++) {
+	 		driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+	 		Thread.sleep(500);
+	 		driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+	 		Thread.sleep(2000);
+	 		String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+	 		closedCheck.add(closedcheckno);	 
+	 		String active = activeCheck.get(k);
+	 		item.add(active);
+	 		}
+	 	
+			System.out.println(item);
+			System.out.println(closedCheck);
+
+	 	if(item.equals(closedCheck))
+	 	{
+	 		System.out.println("Checks available");
+	 	}
+
+	   
+	}
+
+   public static void Browser1_create_Two_checksWithServiceExempt_Browser2_merge_both_the_ChecksAndCloseIt() throws Exception {
+	   ((JavascriptExecutor) driver).executeScript("window.open()");
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+				
+		driver.get(Utility.getProperty("Pre_Prod_Url"));
+		Thread.sleep(30000);
+		driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Store_id"));
+		driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Store_password"));
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(6000);
+		
+		for (int i = 0; i < 4; i++){
+			driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
+			Thread.sleep(500);
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(2000);
+
+	   for(int i = 1; i<=10; i++) {
+			driver.switchTo().window(tabs.get(0));
+
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js2 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			driver.findElement(By.xpath(".//div[text()=\"Option\"]")).click();
+			driver.findElement(By.xpath(".//label[text()=\"Service Exempt\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+
+			Thread.sleep(1000);
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			WebElement menu12 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu12);
+			menu12.click();
+			placedMenu.add(menu12.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			driver.findElement(By.xpath(".//div[text()=\"Option\"]")).click();
+			driver.findElement(By.xpath(".//label[text()=\"Service Exempt\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+
+			Thread.sleep(1000);
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			driver.switchTo().window(tabs.get(1));
+			try {
+				driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+				driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+				driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
+			} catch (Exception e) {
+			}
+			
+			driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+			driver.switchTo().window(tabs.get(0));
+
+			 driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			 try
+			 {
+				 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+				 
+			 }	 catch (Exception e) {
+			 }
+			 driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+			 Thread.sleep(500);
+			 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+			
+			}
+		
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();	
+			for(int k=0; k<activeCheck.size(); k++) {
+				if ( k % 2 == 0 ) {
+					driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+					Thread.sleep(500);
+		 	driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+		 	Thread.sleep(2000);
+		 	String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+		 	closedCheck.add(closedcheckno);	 
+		 	String active = activeCheck.get(k);
+		 	item.add(active);
+		 		}
+		 	}
+	 		System.out.println(item);
+	 		System.out.println(closedCheck);
+
+		 	if(item.equals(closedCheck))
+		 	{
+		 		System.out.println("Checks available");
+		 	}
+
+	}
+
+	public static void Browser1_Create_Two_CheckWithTaxExempt_Browser2_merge_both_the_ChecksAndCloseItBrowser1() throws Exception {
+		((JavascriptExecutor) driver).executeScript("window.open()");
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+				
+		driver.get(Utility.getProperty("Pre_Prod_Url"));
+		Thread.sleep(30000);
+		driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Store_id"));
+		driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Store_password"));
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(6000);
+		
+		for (int i = 0; i < 4; i++){
+			driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
+			Thread.sleep(500);
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(2000);
+
+		for(int i = 1; i<=50; i++) {
+			driver.switchTo().window(tabs.get(0));
+
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js2 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			driver.findElement(By.xpath(".//div[text()=\"Option\"]")).click();
+			driver.findElement(By.xpath(".//label[text()=\"Tax Exempt\"]")).click();
+
+			Thread.sleep(1000);
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			WebElement menu12 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu12);
+			menu12.click();
+			placedMenu.add(menu12.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			driver.findElement(By.xpath(".//div[text()=\"Option\"]")).click();
+			driver.findElement(By.xpath(".//label[text()=\"Tax Exempt\"]")).click();
+
+			Thread.sleep(1000);
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+
+			driver.switchTo().window(tabs.get(1));
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
+			driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+
+				driver.switchTo().window(tabs.get(0));
+				driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+				driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+				driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
+			 driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			 try
+			 {
+				 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+				 
+			 }	 catch (Exception e) {
+			 }
+			 driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+			 Thread.sleep(500);
+			 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+			
+			}
+		
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();	
+			for(int k=0; k<activeCheck.size(); k++) {
+				if ( k % 2 == 0 ) {
+					driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+					Thread.sleep(500);
+		 	driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+		 	Thread.sleep(2000);
+		 	String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+		 	closedCheck.add(closedcheckno);	 
+		 	String active = activeCheck.get(k);
+		 	item.add(active);
+		 		}
+		 	}
+	 		System.out.println(item);
+	 		System.out.println(closedCheck);
+
+		 	if(item.equals(closedCheck))
+		 	{
+		 		System.out.println("Checks available");
+		 	}
+
+	}
+
+	public static void Browser1_Create_Two_CheckWithPayment_Browser2_merge_both_the_ChecksAndCloseItInBrowser1() throws Exception {
+		((JavascriptExecutor) driver).executeScript("window.open()");
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+				
+		driver.get(Utility.getProperty("Pre_Prod_Url"));
+		Thread.sleep(30000);
+		driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Store_id"));
+		driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Store_password"));
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(6000);
+		
+		for (int i = 0; i < 4; i++){
+			driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
+			Thread.sleep(500);
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(2000);
+		
+
+		for(int i = 1; i<=50; i++) {
+			driver.switchTo().window(tabs.get(0));
+
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js2 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//button[text()=\"Exit\"]")).click();
+
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			WebElement menu12 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu12);
+			menu12.click();
+			placedMenu.add(menu12.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			driver.findElement(By.xpath(".//div[text()=\"Side CC\"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//button[text()=\"Exit\"]")).click();
+
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+
+			driver.switchTo().window(tabs.get(1));
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();	
+			driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+			Thread.sleep(3000);
+
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+			driver.switchTo().window(tabs.get(0));
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();	
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			 try
+			 {
+				 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+				 
+			 }	 catch (Exception e) {
+			 }
+			 driver.findElement(By.xpath(".//div[text()=\"Payment\"]")).click();
+
+			 driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+			 Thread.sleep(500);
+			 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+			
+			}
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();	
+		for(int k=0; k<activeCheck.size(); k++) {
+			if ( k % 2 == 0 ) {
+				driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+				Thread.sleep(500);
+	 	driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+	 	Thread.sleep(2000);
+	 	String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+	 	closedCheck.add(closedcheckno);	 
+	 	String active = activeCheck.get(k);
+	 	item.add(active);
+	 		}
+	 	}
+ 		System.out.println(item);
+ 		System.out.println(closedCheck);
+
+	 	if(item.equals(closedCheck))
+	 	{
+	 		System.out.println("Checks available");
+	 	}
+
+	}
+
+	public static void Create_TwoCheck_TransferAllTheMenuFromOneTableToAnotherTable2_OpenTransferredTableAndCloseTheCheck() throws InterruptedException {
+		for(int j = 0; j<=50 ; j++) {
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		String itemcheckno1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(itemcheckno1);
+
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+		Thread.sleep(500);
+		JavascriptExecutor js3 = (JavascriptExecutor) driver;
+		WebElement menu3 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js3.executeScript("arguments[0].scrollIntoView();", menu3);
+		menu3.click();
+		placedMenu.add(menu3.getText());
+		
+		menu3 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js3.executeScript("arguments[0].scrollIntoView();", menu3);
+		menu3.click();
+		placedMenu.add(menu3.getText());
+		
+		menu3 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js3.executeScript("arguments[0].scrollIntoView();", menu3);
+		menu3.click();
+		placedMenu.add(menu3.getText());
+
+		Thread.sleep(1000);
+		String itemcheckno2 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(itemcheckno2);
+
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		Thread.sleep(1000);
+		
+	driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+	driver.findElement(By.xpath(".//*[text()=\"Transfer item\"]")).click();
+	Thread.sleep(1000);
+	driver.findElement(By.xpath(".//span[contains(text(),\"T1\")]")).click();
+	int checkSize = driver.findElements(By.xpath(".//ion-col[@class=\"menu-name ion-text-left md hydrated\"]")).size();
+	for(int i=1 ;i<=checkSize ; i++)	{
+	driver.findElement(By.xpath("(.//ion-col[@class=\"menu-name ion-text-left md hydrated\"])" + "[" + i + "]")).click();
+	}
+	driver.findElement(By.xpath("(.//span[contains(text(),\"T2\")])[2]")).click();
+	
+	driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
+	Thread.sleep(1000);
+	driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+	Thread.sleep(1500);
+	driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
+	Thread.sleep(500);
+	driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+	 driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+	 try {
+	 driver.findElement(By.xpath("(.//ion-content[contains(@class,\"table-multiple-checks-content\")]/ion-grid/ion-row/div)[1]")).click();
+	 Thread.sleep(1000);
+	 }catch(Exception e) {
+	 			 }
+	 try
+	 {
+		 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+		 
+	 }	 catch (Exception e) {
+	 }
+	 driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+	 driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+	 Thread.sleep(500);
+  	driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+	
+}
+	driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+ 	driver.findElement(By.xpath("*//button[text()=\"All\"]")).click();
+ 	Thread.sleep(500);
+ 	
+ 	for(int k=0; k<activeCheck.size(); k++) {
+ 			driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+ 			Thread.sleep(500);
+ 	driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+ 	Thread.sleep(2000);
+ 	String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+ 	closedCheck.add(closedcheckno);	 
+ 	String active = activeCheck.get(k);
+ 	item.add(active);
+ 		}
+ 	
+		System.out.println(item);
+		System.out.println(closedCheck);
+
+ 	if(item.equals(closedCheck))
+ 	{
+ 		System.out.println("Checks available");
+ 	}
+		
+	}
+
+	public static void Create_Two_CheckWithServiceExempt_merge_both_the_ChecksAndCloseIt() throws InterruptedException {
+		for(int i = 1; i<=10; i++) {
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js2 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			driver.findElement(By.xpath(".//div[text()=\"Option\"]")).click();
+			driver.findElement(By.xpath(".//label[text()=\"Service Exempt\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+
+			Thread.sleep(1000);
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			WebElement menu12 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu12);
+			menu12.click();
+			placedMenu.add(menu12.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			driver.findElement(By.xpath(".//div[text()=\"Option\"]")).click();
+			driver.findElement(By.xpath(".//label[text()=\"Service Exempt\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+
+			Thread.sleep(1000);
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+			 driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			 try
+			 {
+				 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+				 
+			 }	 catch (Exception e) {
+			 }
+			 driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+			 driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+			 Thread.sleep(500);
+			 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+			
+			}
+		
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();	
+			for(int k=0; k<activeCheck.size(); k++) {
+				if ( k % 2 == 0 ) {
+					driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+					Thread.sleep(500);
+		 	driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+		 	Thread.sleep(2000);
+		 	String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+		 	closedCheck.add(closedcheckno);	 
+		 	String active = activeCheck.get(k);
+		 	item.add(active);
+		 		}
+		 	}
+	 		System.out.println(item);
+	 		System.out.println(closedCheck);
+
+		 	if(item.equals(closedCheck))
+		 	{
+		 		System.out.println("Checks available");
+		 	}
+
+	}
+
+	public static void Create_Two_CheckWithTaxExempt_merge_both_the_ChecksAndCloseIt() throws InterruptedException {
+		for(int i = 1; i<=50; i++) {
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		driver.findElement(By.xpath(".//div[text()=\"Option\"]")).click();
+		driver.findElement(By.xpath(".//label[text()=\"Tax Exempt\"]")).click();
+
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		WebElement menu12 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu12);
+		menu12.click();
+		placedMenu.add(menu12.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		driver.findElement(By.xpath(".//div[text()=\"Option\"]")).click();
+		driver.findElement(By.xpath(".//label[text()=\"Tax Exempt\"]")).click();
+
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+		Thread.sleep(4000);
+
+		driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+		 driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		 try
+		 {
+			 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+			 
+		 }	 catch (Exception e) {
+		 }
+		 driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+		 driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+		 Thread.sleep(500);
+		 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+		
+		}
+	
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();	
+		for(int k=0; k<activeCheck.size(); k++) {
+			if ( k % 2 == 0 ) {
+				driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+				Thread.sleep(500);
+	 	driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+	 	Thread.sleep(2000);
+	 	String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+	 	closedCheck.add(closedcheckno);	 
+	 	String active = activeCheck.get(k);
+	 	item.add(active);
+	 		}
+	 	}
+ 		System.out.println(item);
+ 		System.out.println(closedCheck);
+
+	 	if(item.equals(closedCheck))
+	 	{
+	 		System.out.println("Checks available");
+	 	}
+	
+	}
+
+	public static void Create_Two_CheckWithPayment_merge_both_the_ChecksAndCloseIt() throws InterruptedException {
+		for(int i = 1; i<=50; i++) {
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			JavascriptExecutor js2 = (JavascriptExecutor) driver;
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			 driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+			Thread.sleep(1000);
+			 driver.findElement(By.xpath(".//button[text()=\"Exit\"]")).click();
+
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			WebElement menu12 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu12);
+			menu12.click();
+			placedMenu.add(menu12.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			driver.findElement(By.xpath(".//div[text()=\"Side CC\"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//button[text()=\"Exit\"]")).click();
+
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			try
+			{
+				driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+			} catch (Exception e) {
+			}
+			driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+			Thread.sleep(3000);
+
+			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+			 driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+			 try
+			 {
+				 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+				 
+			 }	 catch (Exception e) {
+			 }
+			 driver.findElement(By.xpath(".//div[text()=\"Payment\"]")).click();
+
+			 driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+			 Thread.sleep(500);
+			 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+			
+			}
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();	
+		for(int k=0; k<activeCheck.size(); k++) {
+			if ( k % 2 == 0 ) {
+				driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+				Thread.sleep(500);
+	 	driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+	 	Thread.sleep(2000);
+	 	String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+	 	closedCheck.add(closedcheckno);	 
+	 	String active = activeCheck.get(k);
+	 	item.add(active);
+	 		}
+	 	}
+ 		System.out.println(item);
+ 		System.out.println(closedCheck);
+
+	 	if(item.equals(closedCheck))
+	 	{
+	 		System.out.println("Checks available");
+	 	}
+
+	}
+
+	public static void Browser1_CreateCheck_Browser2_TransferitemfromOnetableToAnotherTable_Browser1_Create_Check_MergeBoththeCheck_Loop() throws Exception {
+		((JavascriptExecutor) driver).executeScript("window.open()");
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+				
+		driver.get(Utility.getProperty("Pre_Prod_Url"));
+		Thread.sleep(30000);
+		driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Store_id"));
+		driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Store_password"));
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(6000);
+		
+		for (int i = 0; i < 4; i++){
+			driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
+			Thread.sleep(500);
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(2000);
+		
+		driver.switchTo().window(tabs.get(0));
+
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		WebElement menu12 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu12);
+		menu12.click();
+		placedMenu.add(menu12.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		
+		for(int i = 0; i<100 ; i++) {
+			driver.switchTo().window(tabs.get(1));
+			try {
+			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();	
+			} catch (Exception e) {
+				// TODO: handle exception
+			}		
+			driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+			driver.findElement(By.xpath(".//*[text()=\"Transfer item\"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//span[contains(text(),\"T1\")]")).click();
+			int checkSize = driver.findElements(By.xpath(".//ion-col[@class=\"menu-name ion-text-left md hydrated\"]")).size();
+			for(int j=1 ;j<=checkSize ; j++)	{
+			driver.findElement(By.xpath("(.//ion-col[@class=\"menu-name ion-text-left md hydrated\"])" + "[" + j + "]")).click();
+			}
+			driver.findElement(By.xpath("(.//span[contains(text(),\"T2\")])[2]")).click();
+			driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
+			Thread.sleep(1000);
+
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
+			Thread.sleep(500);	
+			driver.switchTo().window(tabs.get(0));
+			driver.findElement(By.xpath(".//div[text()=\"New Check\"]")).click();
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		
+			driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();			
+		
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		menu1 = driver.findElement(By.xpath(".//div[contains(@class,\"ion-col fill-container\")]/button/div[text()=\"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//div[contains(@class,\"ion-col fill-container\")]/button/div[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//div[contains(@class,\"ion-col fill-container\")]/button/div[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(3000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+		}
+		driver.switchTo().window(tabs.get(1));
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		int item_count4 = driver.findElements(By.xpath(".//div[contains(@class,\"orderlist-container  \")]")).size();
+		for(int i=1 ;i<=item_count4 ; i++)	{
+			JavascriptExecutor js4 = (JavascriptExecutor) driver;
+			WebElement menuitemname = driver.findElement(By.xpath("(.//div[contains(@class,\"orderlist-menuname\")])" + "[" + i + "]"));
+			js4.executeScript("arguments[0].scrollIntoView();", menuitemname);
+			menuName.add(menuitemname.getText());
+		}
+	
+		System.out.println(placedMenu);
+		System.out.println(menuName);
+
+		if(placedMenu.equals(menuName)) {
+			System.out.println("Menu items available - Pass");
+		}
+		else {
+			System.out.println("Menu available - fail");
+		}
+	
+		placedMenu.clear();
+		menuName.clear();
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+
+	}
+
+	public static void Browser1_CreateCheck_Browser2_TransfertablefromOnetableToAnotherTable_Browser1_Create_Check_MergeBoththeCheck_Loop() throws Exception {
+		((JavascriptExecutor) driver).executeScript("window.open()");
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+				
+		driver.get(Utility.getProperty("Pre_Prod_Url"));
+		Thread.sleep(30000);
+		driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Store_id"));
+		driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Store_password"));
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(6000);
+		
+		for (int i = 0; i < 4; i++){
+			driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
+			Thread.sleep(500);
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		Thread.sleep(2000);
+		
+		driver.switchTo().window(tabs.get(0));
+
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		for(int i = 0; i<30 ; i++) {
+			driver.switchTo().window(tabs.get(1));
+			try {
+				driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+				driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+				driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();	
+			} catch (Exception e) {
+			}
+
+		driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Transfer to Table\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Floor 1-T1\"]")).click();
+
+		driver.findElement(By.xpath(".//div/p[contains(.,'"+activeCheck.get(i)+"')]")).click();
+		 
+		driver.findElement(By.xpath(".//ion-col[@class=\"tabletransfer-itemrow-transferto ion-no-padding md hydrated\"]//ul//div//div/div//span[text()=\" Floor 1-T2\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
+		Thread.sleep(2000);
+
+		driver.switchTo().window(tabs.get(0));
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+
+		driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+		}
+		driver.switchTo().window(tabs.get(1));
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		int item_count4 = driver.findElements(By.xpath(".//div[contains(@class,\"orderlist-container  \")]")).size();
+		for(int i=1 ;i<=item_count4 ; i++)	{
+			JavascriptExecutor js4 = (JavascriptExecutor) driver;
+			WebElement menuitemname = driver.findElement(By.xpath("(.//div[contains(@class,\"orderlist-menuname\")])" + "[" + i + "]"));
+			js4.executeScript("arguments[0].scrollIntoView();", menuitemname);
+			menuName.add(menuitemname.getText());
+		}
+	
+		System.out.println(placedMenu);
+		System.out.println(menuName);
+
+		if(placedMenu.equals(menuName)) {
+			System.out.println("Menu items available - Pass");
+		}
+		else {
+			System.out.println("Menu available - fail");
+		}
+	
+		placedMenu.clear();
+		menuName.clear();
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+
+	}
+
+	public static void Create_Two_Check_merge_both_the_ChecksAndCloseIt() throws InterruptedException {
+		for(int i = 1; i<10; i++) {
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		WebElement menu12 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu12);
+		menu12.click();
+		placedMenu.add(menu12.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+		 driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		 try
+		 {
+			 driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+			 
+		 }	 catch (Exception e) {
+		 }
+		 driver.findElement(By.xpath(".//div[text()=\"Others\"]")).click();
+		 driver.findElement(By.xpath(".//button[text()=\"Submit\"]")).click();
+		 Thread.sleep(500);
+		 driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+		
+		}
+	
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();	
+		for(int k=0; k<activeCheck.size(); k++) {
+			if ( k % 2 == 0 ) {
+				driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+				Thread.sleep(500);
+	 	driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(k));
+	 	Thread.sleep(2000);
+	 	String closedcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(k)+"')]")).getText();
+	 	closedCheck.add(closedcheckno);	 
+	 	String active = activeCheck.get(k);
+	 	item.add(active);
+	 		}
+	 	}
+ 		System.out.println(item);
+ 		System.out.println(closedCheck);
+
+	 	if(item.equals(closedCheck))
+	 	{
+	 		System.out.println("Checks available");
+	 	}
+	
+	}
+
+	public static void CreateCheck_TransferitemfromOnetableToAnotherTable_Create_Check_MergeBoththeCheck_Loop() throws InterruptedException {
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		
+		for(int i = 0; i<100 ; i++) {
+			driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+			driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+			WebElement menu12 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+			js.executeScript("arguments[0].scrollIntoView();", menu12);
+			menu12.click();
+			placedMenu.add(menu12.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+			js1.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			
+			menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+			js2.executeScript("arguments[0].scrollIntoView();", menu1);
+			menu1.click();
+			placedMenu.add(menu1.getText());
+			Thread.sleep(1000);
+			checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+			activeCheck.add(checkNo1);
+			driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+			
+			driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+			driver.findElement(By.xpath(".//*[text()=\"Transfer item\"]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(".//span[contains(text(),\"T1\")]")).click();
+			int checkSize = driver.findElements(By.xpath(".//ion-col[@class=\"menu-name ion-text-left md hydrated\"]")).size();
+			for(int j=1 ;j<=checkSize ; j++)	{
+			driver.findElement(By.xpath("(.//ion-col[@class=\"menu-name ion-text-left md hydrated\"])" + "[" + j + "]")).click();
+			}
+			driver.findElement(By.xpath("(.//span[contains(text(),\"T2\")])[2]")).click();
+			driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
+			Thread.sleep(1000);
+
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
+			Thread.sleep(500);	
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+		}
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		int item_count4 = driver.findElements(By.xpath(".//div[contains(@class,\"orderlist-container  \")]")).size();
+		for(int i=1 ;i<=item_count4 ; i++)	{
+			JavascriptExecutor js4 = (JavascriptExecutor) driver;
+			WebElement menuitemname = driver.findElement(By.xpath("(.//div[contains(@class,\"orderlist-menuname\")])" + "[" + i + "]"));
+			js4.executeScript("arguments[0].scrollIntoView();", menuitemname);
+			menuName.add(menuitemname.getText());
+		}
+	
+		System.out.println(placedMenu);
+		System.out.println(menuName);
+
+		if(placedMenu.equals(menuName)) {
+			System.out.println("Menu items available - Pass");
+		}
+		else {
+			System.out.println("Menu available - fail");
+		}
+	
+		placedMenu.clear();
+		menuName.clear();
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+
+	}
+
+	public static void CreateCheck_TransfertablefromOnetableToAnotherTable_Create_Check_MergeBoththeCheck_Loop() throws InterruptedException {
+		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\"DINE IN\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//div[text()=\"Floor 1\"]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		for(int i = 0; i<100 ; i++) {
+		driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Transfer to Table\"]")).click();
+		  driver.findElement(By.xpath(".//span[text()=\"Floor 1-T1\"]")).click();
+
+		  driver.findElement(By.xpath(".//div/p[contains(.,'"+activeCheck.get(i)+"')]")).click();
+		 
+		  driver.findElement(By.xpath(".//ion-col[@class=\"tabletransfer-itemrow-transferto ion-no-padding md hydrated\"]//ul//div//div/div//span[text()=\" Floor 1-T2\"]")).click();
+		  driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
+		  Thread.sleep(3000);
+		  driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
+	
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"1\"]")).click();
+		driver.findElement(By.xpath(".//span[text()=\"Continue\"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Raggi Mall\"]"));
+		js1.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		
+		menu1 = driver.findElement(By.xpath(".//*[text()= \"Tacco Bell\"]"));
+		js2.executeScript("arguments[0].scrollIntoView();", menu1);
+		menu1.click();
+		placedMenu.add(menu1.getText());
+		Thread.sleep(1000);
+		checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		activeCheck.add(checkNo1);
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//*[text()=\"Merge\"]")).click();
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//*[text()=\"T2 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		driver.findElement(By.xpath(".//button[contains(@class,\"mergecheckmain-floatbtnmain-btn\")]")).click();
+
+		Thread.sleep(500);
+		driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
+		}
+		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		try
+		{
+			driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
+
+		} catch (Exception e) {
+		}
+		int item_count4 = driver.findElements(By.xpath(".//div[contains(@class,\"orderlist-container  \")]")).size();
+		for(int i=1 ;i<=item_count4 ; i++)	{
+			JavascriptExecutor js4 = (JavascriptExecutor) driver;
+			WebElement menuitemname = driver.findElement(By.xpath("(.//div[contains(@class,\"orderlist-menuname\")])" + "[" + i + "]"));
+			js4.executeScript("arguments[0].scrollIntoView();", menuitemname);
+			menuName.add(menuitemname.getText());
+		}
+	
+		System.out.println(placedMenu);
+		System.out.println(menuName);
+
+		if(placedMenu.equals(menuName)) {
+			System.out.println("Menu items available - Pass");
+		}
+		else {
+			System.out.println("Menu available - fail");
+		}
+	
+		placedMenu.clear();
+		menuName.clear();
+		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
+	}
+
 	public static void Browser1_Place_menu_Do_payment_Browser2_OpenSameCheck_PlaceMenu_DeletePayment_Do_Payment() throws Exception {
 		((JavascriptExecutor) driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 		
 		
-		driver.get(Utility.getProperty("Pre_Prod_Url"));
+		driver.get(Utility.getProperty("Local_build_Url"));
 		Thread.sleep(30000);
-		driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
-		driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
+		driver.findElement(By.id("mat-input-0")).sendKeys("chotu@mail.com");
+		driver.findElement(By.id("mat-input-1")).sendKeys("chotu1");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 		Thread.sleep(6000);
@@ -140,7 +2836,17 @@ public class Saran {
 		driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
 		driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
 		for(int i = 0; i<100 ; i++) {
-			driver.switchTo().window(tabs.get(0));
+			if(i%2==0) {
+				driver.switchTo().window(tabs.get(0));
+			}else {
+				driver.switchTo().window(tabs.get(1));
+				try {
+				driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+				driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+				driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
+				}catch(Exception e) {
+				}
+			}
 
 			driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
 			try {
@@ -169,7 +2875,7 @@ public class Saran {
 			}
 			driver.findElement(By.xpath(".//div/ion-row/ion-col")).click();
 			driver.findElement(By.xpath(".//button[text()=\"Delete\"]")).click();
-			Thread.sleep(3000);
+			Thread.sleep(2500);
 			driver.findElement(By.xpath(".//button[text()=\"Exit\"]")).click();
 			driver.findElement(By.xpath(".//div[text()=\"Finish\"]")).click();
 		}
@@ -414,7 +3120,7 @@ public class Saran {
 		driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
 		driver.findElement(By.xpath(".//button[text()=\" QSR \"]")).click();
 
-		for (int i=0;i<100;i++) {
+		for (int i=0;i<30;i++) {
 			if(i%2==0) {
 				driver.switchTo().window(tabs.get(1));
 			}else {
@@ -1374,12 +4080,12 @@ public class Saran {
 
 	} 
 
-	private static void Browser1_Create_50Check_Browser2_Merge_two_Checks_and_closeIt_Loop_Browser1_ClosedChecksAreAvailableOrNot() throws Exception {
+	public static void Browser1_Create_multipleActiveChecks_Browser2_Merge_two_Checks_and_closeIt_Loop_Browser1_ClosedChecksAreAvailableOrNot() throws Exception {
 		
 		((JavascriptExecutor) driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		driver.get(Utility.getProperty("Pre_Prod_Url"));
+		driver.get(Utility.getProperty("Staging_Url"));
 		Thread.sleep(30000);
 		driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 		driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -1395,7 +4101,7 @@ public class Saran {
 		Thread.sleep(2000);
 		
 		driver.switchTo().window(tabs.get(0));
-		for(int k=0; k<6 ; k++) {
+		for(int k=0; k<20 ; k++) {
 
 			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
@@ -2122,7 +4828,7 @@ public class Saran {
 //		Thread.sleep(2000);
 //		
 //		driver.switchTo().window(tabs.get(0));
-		for(int k=0; k<100 ; k++) {
+		for(int k=0; k<50 ; k++) {
 
 			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
@@ -2605,12 +5311,12 @@ public class Saran {
 		
 	}
 
-	private static void Browser1_Create_50Checks_Browser2_Transfer_menu_from_oneTable_to_another() throws InterruptedException {
+	private static void Browser1_Create_50Checks_Browser2_Transfer_menu_from_oneTable_to_another() throws Exception {
 		 ((JavascriptExecutor) driver).executeScript("window.open()");
 			ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(tabs.get(1));
 
-			driver.get("https://pre-webpos.lingapos.com/#/auth/pin");
+			driver.get(Utility.getProperty("Staging_Url"));
 			Thread.sleep(30000);
 			driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 			driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -2727,7 +5433,7 @@ public class Saran {
 		((JavascriptExecutor) driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		driver.get(Utility.getProperty("Local_build_Url"));
+		driver.get(Utility.getProperty("Pre_Prod_Url"));
 		Thread.sleep(30000);
 		driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 		driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -2743,7 +5449,7 @@ public class Saran {
 		Thread.sleep(2000);
 		
 		driver.switchTo().window(tabs.get(0));
-		for(int k=0; k<100 ; k++) {
+		for(int k=0; k<50 ; k++) {
 
 			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 			driver.findElement(By.xpath(".//button[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
@@ -2807,7 +5513,7 @@ public class Saran {
 
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(".//button[@class=\"tabletransfer-headrow-colrit-done\"]")).click();
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 
 			driver.findElement(By.xpath(".//button[text()=\"Done\"]")).click();
 			driver.findElement(By.xpath(".//button/p[text()=\"T1 \"]")).click();
@@ -3069,76 +5775,79 @@ public class Saran {
 		
 	}
 
-	private static void Browser1_CreateChecks_Transfercheck_FromOneTable_To_AnotherTable_Browser2_Transfercheck_FromOneTable_To_AnotherTable() throws InterruptedException {
+	public static void Browser1_CreateChecks_Transfercheck_FromOneTable_To_AnotherTable_Browser2_Transfercheck_FromOneTable_To_AnotherTable() throws InterruptedException {
 		 ((JavascriptExecutor) driver).executeScript("window.open()");
-			ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(tabs.get(1));
-
-			driver.get("https://pre-webpos.lingapos.com/#/auth/pin");
-			Thread.sleep(30000);
-			driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
-			driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
-			Thread.sleep(3000);
-			driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
-			Thread.sleep(6000);
+		 ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		 driver.switchTo().window(tabs.get(1));
+		 
+		 driver.get("https://pre-webpos.lingapos.com/#/auth/pin");
+		 Thread.sleep(30000);
+		 driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
+		 driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
+		 Thread.sleep(3000);
+		 driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		 Thread.sleep(6000);
 			
-			for (int i = 0; i < 4; i++){
-				driver.findElement(By.xpath(".//*[text()=\"2\"]")).click();
-				Thread.sleep(500);
-			}
-			driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
-			Thread.sleep(2000);
-			driver.switchTo().window(tabs.get(0));
+		 for (int i = 0; i < 4; i++){
+			 driver.findElement(By.xpath(".//*[text()=\"2\"]")).click();
+			 Thread.sleep(500);
+			}	
+		 driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+		 Thread.sleep(2000);
+		 driver.switchTo().window(tabs.get(0));
 
-		driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		 driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 		
-		driver.findElement(By.xpath(".//*[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
-		Thread.sleep(500);
-		driver.findElement(By.xpath(".//*[text()=\"DINE IN\"]")).click();
-		Thread.sleep(1000);
+		 driver.findElement(By.xpath(".//*[@class=\"mat-menu-trigger order-header-menu ng-star-inserted\"]")).click();
+		 Thread.sleep(500);
+		 driver.findElement(By.xpath(".//*[text()=\"DINE IN\"]")).click();
+		 Thread.sleep(1000);
 		
-		driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
-		Thread.sleep(500);
+		 driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
+		 Thread.sleep(500);
 		
-		driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
+		 driver.findElement(By.xpath(".//*[text()=\"T1 \"]")).click();
 		
-		  driver.findElement(By.xpath(".//*[text()=\"Chai\"]")).click();
-		  checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
-		  Thread.sleep(2000);
-		  driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
-		  Thread.sleep(1000);
-			driver.switchTo().window(tabs.get(1));
-			driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
-			driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
-			driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
-
-		  driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
-		  driver.findElement(By.xpath(".//*[text()=\"Transfer to Table\"]")).click();
-		  int size = driver.findElements(By.xpath(".//*[contains(@class,\"tabletransfer-itemrow-transferfrom \")]/ul/div/div/div/span")).size();
+		 driver.findElement(By.xpath(".//*[text()=\"Chai\"]")).click();
+		 checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
+		 Thread.sleep(2000);
+		 driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
+		 Thread.sleep(1000);
+		 driver.switchTo().window(tabs.get(1));
+		 driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
+		 driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
+		 driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
 		 
-		 
-		  for(int j=1; j<size; j++) {
-			  if(j%2==0)
-				 {
-						driver.switchTo().window(tabs.get(1));
-
-				 }else {
-						driver.switchTo().window(tabs.get(0));
+		 driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+		 driver.findElement(By.xpath(".//*[text()=\"Transfer to Table\"]")).click();
+		 int size = driver.findElements(By.xpath(".//*[contains(@class,\"tabletransfer-itemrow-transferfrom \")]/ul/div/div/div/span")).size();
+		 	
+		 	
+		 for(int j=1; j<size; j++) {
+			 if(j%2==0)
+			 {
+				 driver.switchTo().window(tabs.get(1));
+				 
+			}else {
+				driver.switchTo().window(tabs.get(0));
 
 				 }
 			  try{
-			  driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
+				 driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
 			  driver.findElement(By.xpath(".//*[text()=\"Transfer to Table\"]")).click();
 			  }
 			  catch(Exception e) {
 				  
 			  }
+			  Thread.sleep(1000);
+
 		  driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferfrom\")]/ul/div/div/div/span)"+"["+j+"]")).click();
-			 
+		  Thread.sleep(2000);
+
 		  driver.findElement(By.xpath(".//div/p[contains(.,'"+checkNo1+"')]")).click();
 		  driver.findElement(By.xpath("(.//*[contains(@class,\"tabletransfer-itemrow-transferto\")]/ul/div/div/div/span)"+"["+j+"]")).click();
 		  driver.findElement(By.xpath(".//*[text()=\" Done \"]")).click();
-		  Thread.sleep(1000);
+		  Thread.sleep(2000);
 		  driver.findElement(By.xpath(".//*[text()=\"Done\"]")).click();
 		  }	
 		  driver.findElement(By.xpath(".//*[text()=\"Transfer\"]")).click();
@@ -3967,12 +6676,12 @@ public class Saran {
 
 	}
 
-	private static void Browser1_placeMenu_TaxExempt_activecheck_Browser2_Placemenu_ServiceExempt_closeCheck() throws InterruptedException {
+	private static void Browser1_placeMenu_TaxExempt_activecheck_Browser2_Placemenu_ServiceExempt_closeCheck() throws Exception {
 		((JavascriptExecutor) driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 
-		driver.get("https://pre-webpos.lingapos.com/#/auth/pin");
+		driver.get(Utility.getProperty("Staging_Url"));
 		Thread.sleep(30000);
 		driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 		driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -4071,12 +6780,12 @@ public class Saran {
 
 	}
 
-	private static void Browser1_placeMenu_Browser2_opensameCheck_PlaceMenu_afterloop_Finish() throws InterruptedException {
+	private static void Browser1_placeMenu_Browser2_opensameCheck_PlaceMenu_afterloop_Finish() throws Exception {
 		((JavascriptExecutor) driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 
-		driver.get("https://pre-webpos.lingapos.com/#/auth/pin");
+		driver.get(Utility.getProperty("Staging_Url"));
 		Thread.sleep(10000);
 		driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 		driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -4686,7 +7395,7 @@ public class Saran {
 		 ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		 driver.switchTo().window(tabs.get(1));
 
-		 driver.get(Utility.getProperty("Pre_Prod_Url"));
+		 driver.get(Utility.getProperty("Staging_Url"));
 		 Thread.sleep(30000);
 		 driver.findElement(By.id("mat-input-0")).sendKeys(Utility.getProperty("Store_id"));
 		 driver.findElement(By.id("mat-input-1")).sendKeys(Utility.getProperty("Store_password"));
@@ -4701,7 +7410,7 @@ public class Saran {
 		 driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 		 Thread.sleep(2000);
 			
-		 for (int j = 0; j < 3; j++){
+		 for (int j = 0; j < 20; j++){
 			 driver.switchTo().window(tabs.get(0));
 			 driver.findElement(By.xpath(".//*[text()=\"Cancel\"]")).click();
 				
@@ -4711,16 +7420,16 @@ public class Saran {
 			 Thread.sleep(1000);
 			 
 			 driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
-			 Thread.sleep(1000);
 			 
 			 driver.findElement(By.xpath(".//*[text()=\"T7 \"]")).click();
-			 Thread.sleep(1000);
+			 Thread.sleep(500);
 			 
 			 driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
 			 JavascriptExecutor js = (JavascriptExecutor) driver;
 			 WebElement menu1 = driver.findElement(By.xpath(".//*[text()= \"Chai\"]"));
 			 js.executeScript("arguments[0].scrollIntoView();", menu1);
 			 menu1.click();
+			 Thread.sleep(1000);
 			 
 			 driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
 			 
@@ -4733,7 +7442,6 @@ public class Saran {
 			 driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
 			 Thread.sleep(500);
 			 driver.findElement(By.xpath(".//span[text()=\"Table layout\"]")).click();
-			 Thread.sleep(1000);
 			 
 			 driver.findElement(By.xpath(".//*[text()=\"Floor 1\"]")).click();
 			 driver.findElement(By.xpath(".//*[text()=\"T7 \"]")).click();
@@ -4759,7 +7467,7 @@ public class Saran {
 			 driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
 			 Thread.sleep(500);
 			 driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
-			 Thread.sleep(3000);
+			 Thread.sleep(4000);
 			 driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(closedCheck.get(j));
 			 Thread.sleep(1000);
 			 driver.findElement(By.xpath(".//tr/td[contains(.,'"+closedCheck.get(j)+"')]")).click();
@@ -4790,6 +7498,9 @@ public class Saran {
 			  		String Voidcheckno = driver.findElement(By.xpath(".//tr/td[contains(.,'"+closedCheck.get(i)+"')]")).getText();
 			  		voidCheck.add(Voidcheckno);
 			  	}
+		 System.out.println(closedCheck);
+		 System.out.println(voidCheck);
+
 		 if(closedCheck.equals(voidCheck)) {
 			//  test.log(LogStatus.PASS, "Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale - Checks available");
 

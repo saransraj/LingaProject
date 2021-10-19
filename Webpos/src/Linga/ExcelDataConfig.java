@@ -38,7 +38,7 @@ public class ExcelDataConfig {
 		sheet1 = wb.getSheetAt(sheetNumber);
 		
 		String data = sheet1.getRow(row).getCell(column).getStringCellValue();
-		
+		System.out.println(data);
 				
 		return data;
 
@@ -50,7 +50,7 @@ public class ExcelDataConfig {
 		sheet1 = wb.getSheetAt(sheetNumber);
 		
 		Double data = (Double) sheet1.getRow(row).getCell(column).getNumericCellValue();
-		
+		System.out.println(data);
 				
 		return data;
 

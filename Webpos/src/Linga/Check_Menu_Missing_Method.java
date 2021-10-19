@@ -37,13 +37,12 @@ public class Check_Menu_Missing_Method {
 
 
 		 public static void main(String[] args) throws Throwable  {
-			// TODO Auto-generated method stub
 			System.setProperty("webdriver.chrome.driver","E:\\Selenium\\Chrome\\chromedriver.exe");
 			driver = new ChromeDriver();
 
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-			driver.get(Utility.getProperty("Local_build_Url"));
+			driver.get(Utility.getProperty("Staging_Url"));
 			Thread.sleep(20000);
 			driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 			driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -96,7 +95,7 @@ public class Check_Menu_Missing_Method {
 			  // Merge_Check_one_by_one();
 			  // menuVoidLoop();
 			  // Place_menu_completepayment_closeCheck_Reopen_Check_placeMenu_closeSale();
-			  // Browser1_Place_menu__attachCustomer1_Browser2_Change_service_type_Place_menu_item_attachCustomer2();
+			 //  Browser1_Place_menu__attachCustomer1_Browser2_Change_service_type_Place_menu_item_attachCustomer2();
 			  // Place_Menu_Do_Payment_VoidPaymnet_DoAnotherPaymnet();
 			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_SideCC_payment();
 			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_HA_payment();
@@ -106,14 +105,14 @@ public class Check_Menu_Missing_Method {
 			  // Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_close_Check();
 			  // Place_menu_Do_hold_Loop();
 			  // Browser1_Place_menu_hold_Browser2_menu_sendToKitchen();
-			   Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_void_check();
+			  // Browser1_Place_menu_activeCheck_Browser2_Place_menu_item_void_check();
 			  // Browser1_CreateChecks_TransferAllItem_FromOneTable_To_AnotherTable_Browser2_TransferAllItem_FromOneTable_To_AnotherTable();	
 			  // Browser1_CreateChecks_Merge_Two_Checks_Browser2_Merge_Two_Checks();
 			  // Transfer_server_In_Loop();
 			  // Transfer_Table_In_Loop();
 			  // Browser1_Create_100Checks_Browser2_Close_100Check();
 			  // Browser1_Create_100holdChecks_Browser2_send_100Check_ToKitchen();
-			  // Browser1_Create_100Checks_Browser2_void_100Check();
+			   Browser1_Create_100Checks_Browser2_void_100Check();
 			  // Browser1_CreateactiveCheck_Browser2_Complete_the_sale_Browser1_Reopen_deletePayment_VoidSale();
 		 }
 		 
@@ -200,7 +199,7 @@ public class Check_Menu_Missing_Method {
 							Thread.sleep(1000);
 							driver.findElement(By.xpath(".//tr/td[contains(.,'"+closedCheck.get(j)+"')]")).click();
 							driver.findElement(By.xpath(".//button[contains(text(),\" Re-open Check \")]")).click();
-							Thread.sleep(3000);
+							Thread.sleep(5000);
 							driver.findElement(By.xpath(".//div[contains(text(),\"Payment\")]")).click();
 							driver.findElement(By.xpath(".//ion-row[@class=\"ng-star-inserted md hydrated\"]")).click();
 							driver.findElement(By.xpath(".//button[text()=\"Delete\"]")).click();
@@ -670,20 +669,20 @@ public class Check_Menu_Missing_Method {
 
 		private static void Browser1_CreateChecks_Merge_Two_Checks_Browser2_Merge_Two_Checks() throws InterruptedException {
 			 ((JavascriptExecutor) driver).executeScript("window.open()");
-				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs.get(1));
+			 ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+			 driver.switchTo().window(tabs.get(1));
 
-				driver.get("https://pre-webpos.lingapos.com/#/auth/pin");
-				Thread.sleep(30000);
-				driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
-				driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
-				Thread.sleep(3000);
-				driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
-				Thread.sleep(6000);
-				
-				for (int i = 0; i < 4; i++){
-					driver.findElement(By.xpath(".//*[text()=\"2\"]")).click();
-					Thread.sleep(500);
+			 driver.get("https://pre-webpos.lingapos.com/#/auth/pin");
+			 Thread.sleep(30000);
+			 driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
+			 driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
+			 Thread.sleep(3000);
+			 driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
+			 Thread.sleep(6000);
+			 
+			 for (int i = 0; i < 4; i++){
+				 driver.findElement(By.xpath(".//*[text()=\"2\"]")).click();
+				 Thread.sleep(500);
 				}
 				driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 				Thread.sleep(2000);

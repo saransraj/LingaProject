@@ -31,7 +31,7 @@ public class CheckMissing {
 				driver = new ChromeDriver();
 				driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 				driver.manage().window().maximize();
-				driver.get("https://web.lingapos.com");
+				driver.get("https://staging-webpos-india.lingapos.com/#/auth/pin");
 				Thread.sleep(10000);
 				driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 				driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -805,6 +805,7 @@ public class CheckMissing {
 				 js2.executeScript("arguments[0].scrollIntoView();", menu3);
 				 menu3.click();
 				 placedMenu.add(menu3.getText());
+				 Thread.sleep(1500);
 				 
 				 driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
 				 Thread.sleep(1000);
@@ -1081,6 +1082,7 @@ public class CheckMissing {
 				js2.executeScript("arguments[0].scrollIntoView();", menu1);
 				menu1.click();
 				placedMenu.add(menu1.getText());
+				Thread.sleep(1500);
 				driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
 				driver.findElement(By.xpath(".//*[text()=\"T4 \"]")).click();
 				driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
@@ -1105,6 +1107,8 @@ public class CheckMissing {
 				js5.executeScript("arguments[0].scrollIntoView();", menu);
 				menu.click();
 				placedMenu.add(menu.getText());
+				Thread.sleep(1500);
+
 				driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
 				Thread.sleep(1000);
 				driver.findElement(By.xpath(".//*[text()=\"T5 \"]")).click();
@@ -1131,6 +1135,8 @@ public class CheckMissing {
 				js8.executeScript("arguments[0].scrollIntoView();", menu3);
 				menu3.click();
 				placedMenu.add(menu3.getText());
+				Thread.sleep(1500);
+
 				driver.findElement(By.xpath(".//*[text()=\"Finish\"]")).click();
 				Thread.sleep(1000);
 				
@@ -1236,7 +1242,6 @@ public class CheckMissing {
 						driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
 
 					} catch (Exception e) {
-					// Code for Handling exception
 					}
 					try {
 						driver.findElement(By.xpath(".//*[text()=\"1\"]")).click();
@@ -1263,7 +1268,8 @@ public class CheckMissing {
 					js2.executeScript("arguments[0].scrollIntoView();", menu1);
 					menu1.click();
 					placedMenu.add(menu1.getText());
-				 
+					Thread.sleep(1000);
+
 					checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();		 	 
 					driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
 					Thread.sleep(1000);
@@ -1295,6 +1301,8 @@ public class CheckMissing {
 					js5.executeScript("arguments[0].scrollIntoView();", menu2);
 					menu2.click();
 					placedMenu.add(menu2.getText());
+					Thread.sleep(1000);
+
 					driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
 					Thread.sleep(1000);
 					driver.findElement(By.xpath(".//*[text()=\"T7 \"]")).click();
@@ -1326,6 +1334,8 @@ public class CheckMissing {
 					js8.executeScript("arguments[0].scrollIntoView();", menu3);
 					menu3.click();
 					placedMenu.add(menu3.getText()); 
+					Thread.sleep(1000);
+
 					driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
 					driver.findElement(By.xpath(".//*[text()= \" QSR \"]")).click();
 					Thread.sleep(1000);
@@ -1341,7 +1351,6 @@ public class CheckMissing {
 						driver.findElement(By.xpath(".//button[text()=\"Yes\"]")).click();
 
 					} catch (Exception e) {
-					// Code for Handling exception
 					}
 				  int item_count = driver.findElements(By.xpath(".//div[contains(@class,\"orderlist-container  \")]")).size();
 				  for(int j=1 ;j<=item_count ; j++)	{
@@ -1404,7 +1413,8 @@ public class CheckMissing {
 				js2.executeScript("arguments[0].scrollIntoView();", menu1);
 				menu1.click();
 				placedMenu.add(menu1.getText());
-			 
+				Thread.sleep(1000);
+
 				checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();		 	 
 				driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();
 				Thread.sleep(500);
