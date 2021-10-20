@@ -11,9 +11,10 @@
     <classes>
       <class name="Linga.ChromeAndIncognino">
         <methods>
-          <include name="chrome" invocation-numbers="0"/>
+          <include name="QSR_Check_Close_Available_Or_Not"/>
           <include name="flushTest"/>
           <include name="QSR_PlaceMenu_DoManual_Hold_DoPayment_ClickYesForHoldCheckPopup_CloseCheck"/>
+          <include name="QSR_Check_Close"/>
         </methods>
       </class> <!-- Linga.ChromeAndIncognino -->
     </classes>
@@ -28,7 +29,7 @@
     <classes>
       <class name="Linga.ChromeAndIncognino">
         <methods>
-          <include name="chrome" invocation-numbers="0"/>
+          <include name="QSR_Check_Close_Available_Or_Not"/>
           <include name="flushTest"/>
           <include name="QSR_PlaceMenu_DoManual_Hold_DoPayment_ClickYesForHoldCheckPopup_CloseCheck"/>
         </methods>

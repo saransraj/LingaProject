@@ -42,7 +42,7 @@ public class Check_Menu_Missing_Method {
 
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-			driver.get(Utility.getProperty("Staging_Url"));
+			driver.get(Utility.getProperty("Production_URL"));
 			Thread.sleep(20000);
 			driver.findElement(By.id("mat-input-0")).sendKeys("shivam@mail.com");
 			driver.findElement(By.id("mat-input-1")).sendKeys("shivam1");
@@ -74,7 +74,7 @@ public class Check_Menu_Missing_Method {
 			  // closeTheDay();
 			  // Menumiss2G();
 			  // Place_menuitem_Finish_loop();
-			  // activeAndClosed();
+			   // activeAndClosed();
 			  // Categorymenucheck();
 			  // Active_Closed_Void();
 			  // Acticecheck();
@@ -96,9 +96,9 @@ public class Check_Menu_Missing_Method {
 			  // menuVoidLoop();
 			  // Place_menu_completepayment_closeCheck_Reopen_Check_placeMenu_closeSale();
 			 //  Browser1_Place_menu__attachCustomer1_Browser2_Change_service_type_Place_menu_item_attachCustomer2();
-			  // Place_Menu_Do_Payment_VoidPaymnet_DoAnotherPaymnet();
+			 //  Place_Menu_Do_Payment_VoidPaymnet_DoAnotherPaymnet();
 			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_SideCC_payment();
-			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_HA_payment();
+			 //  Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment_HA_payment();
 			  // Browser1_Place_menu_Do_Payment_Browser2_Place_menu_item_Delete_payment();
 			  // Place_menu_Do_Payment_Finish_CheckOpen_Place_menu_item_Delete_payment();
 			  //  Browser1_Place_menu_Browser2_addSeat_Place_menu_item();
@@ -1407,20 +1407,20 @@ public class Check_Menu_Missing_Method {
 
 				  driver.findElement(By.xpath(".//ion-col[contains(text(),\"Cash\")]")).click();
 				  driver.findElement(By.xpath(".//button[contains(text(),\"Delete\")]")).click();
-				  Thread.sleep(500);
+				  Thread.sleep(1000);
 
 				  driver.findElement(By.xpath(".//ion-col[contains(text(),\"Side CC\")]")).click();
 
 				  driver.findElement(By.xpath(".//button[contains(text(),\"Delete\")]")).click();
-				  Thread.sleep(1000);
+				  Thread.sleep(1500);
 
 				  driver.findElement(By.xpath(".//ion-col[contains(text(),\"HA Payment\")]")).click();
 				  driver.findElement(By.xpath(".//button[contains(text(),\"Delete\")]")).click();
-				  Thread.sleep(1000);
+				  Thread.sleep(1500);
 
 				  driver.findElement(By.xpath(".//ion-col[contains(text(),\"Gift Card\")]")).click();
 				  driver.findElement(By.xpath(".//button[contains(text(),\"Delete\")]")).click();
-				  Thread.sleep(1500);
+				  Thread.sleep(3000);
 
 					}
 				  driver.findElement(By.xpath(".//*[text()= \"Finish\"]")).click();

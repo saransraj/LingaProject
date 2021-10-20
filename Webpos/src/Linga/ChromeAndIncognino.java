@@ -81,10 +81,10 @@ public class ChromeAndIncognino {
 		driver.findElement(By.xpath(".//*[text()=\"Login\"]")).click();
 		Thread.sleep(2000);
 	}
-		@Test(priority = 1, groups = {"Later"})
+		@Test(priority = 1)
 	    public void QSR_Check_Close() throws Exception {	 
 
-		for (int j = 0; j <100 ; j++){
+		for (int j = 0; j <250 ; j++){
 			  driver.findElement(By.xpath(".//button[text()=\"Cancel\"]")).click();
 			  driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
 			  JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -108,9 +108,9 @@ public class ChromeAndIncognino {
 			  Thread.sleep(500);
 			  
 		 }
-		driver.quit();
+		//driver.quit();
 		}
-		@Test(priority = 2, groups = {"Later"})
+		@Test(priority = 2)
 	    public void QSR_Check_Close_Available_Or_Not() throws Exception {	
 	    	System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 	    	driver = new ChromeDriver();
@@ -326,7 +326,7 @@ public class ChromeAndIncognino {
 		}
 		@Test(priority = 6)
 	    public void QSR_PlaceMenu_DoManual_Hold_DoPayment_ClickYesForHoldCheckPopup_CloseCheck() throws Exception {	 
-			for(int i=0;i<100;i++) {
+			for(int i=0;i<200;i++) {
 				driver.findElement(By.xpath(".//button[text()=\"Cancel\"]")).click();
 				driver.findElement(By.xpath(".//*[text()=\"Chotu\"]")).click();
 			  JavascriptExecutor js = (JavascriptExecutor) driver;

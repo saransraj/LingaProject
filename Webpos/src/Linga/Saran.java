@@ -99,7 +99,7 @@ public class Saran {
 			// Browser1_Create_50Checks_Browser2_Transfer_menu_from_oneTable_to_another();
 			// Browser1_Create40plusChecks_Browser2_Merge_byTwo_Two_Checks();
 			// Browser1_CreateActiveChecks_Browser2_Transfercheck_FromOneTable_To_AnotherTable();
-			// Create_and_Close_QSR_Check_In_loop();
+			 Create_and_Close_QSR_Check_In_loop();
 			// Browser1_CreateActiveChecksInSingleTable_Browser2_TransferAllThecheck_ToDifferentTableInFloor2();
 			// Create_50Check_Merge_two_Checks_and_closeIt_Loop();
 			// Create_50Check_Transfer_allTheMenuFromOneCheckToAnotherCheck_and_closeIt_Loop();
@@ -140,7 +140,7 @@ public class Saran {
 			// CreateCheck_AddExistingCustomer_placemenu_closeCheck_ReopenCheck_Void_Payment_Void_Check();
 			// Create50CheckWith_AddExistingCustomer_DoRepeatOrder_CloseCheck_Again_ReopenAllTheCheck_Void_Payment_Void_Check();
 			 CreateCheckWith_AddExistingCustomer_DoRepeatOrder_CloseCheck_Again_ReopenTheCheck_Void_Payment_Void_Check();
-			// QSR_PlaceMenu_DoCashPayment_Submit_Reopen_DeleteCashPayment_DoSideCCPayment_Loop();
+			 QSR_PlaceMenu_DoCashPayment_Submit_Reopen_DeleteCashPayment_DoSideCCPayment_Loop();
 			
 	}
 			 
@@ -249,7 +249,7 @@ public class Saran {
 		   
 		   driver.findElement(By.xpath("(.//ion-list/ion-item[@class=\"ng-star-inserted item md in-list ion-focusable hydrated\"])[1]")).click();
 		   driver.findElement(By.xpath(".//button[text()=\"Repeat Order\"]")).click();
-		   Thread.sleep(4000);
+		   Thread.sleep(6000);
 		   checkNo1 = driver.findElement(By.xpath(".//*[@class=\"order-header-checkno\"]")).getText();
 		   activeCheck.add(checkNo1);
 		   
@@ -259,11 +259,15 @@ public class Saran {
 		   driver.findElement(By.xpath(".//button[text()=\"All\"]")).click();
 		   Thread.sleep(500);
 		   driver.findElement(By.xpath(".//span[text()=\"Check Status\"]")).click();
+		   //Thread.sleep(1000);
+		   driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
+		   Thread.sleep(1000);
+		   driver.findElement(By.xpath(".//button[text()=\"Active\"]")).click();
 		   Thread.sleep(1000);
 		   driver.findElement(By.xpath(".//button[text()=\"Closed\"]")).click();
 		   Thread.sleep(1000);
 		   driver.findElement(By.xpath(".//input[@data-placeholder=\"Check No\"]")).sendKeys(activeCheck.get(i));
-		   Thread.sleep(5000);
+		   Thread.sleep(3000);
 		   driver.findElement(By.xpath(".//tr/td[contains(.,'"+activeCheck.get(i)+"')]")).click();
 		   driver.findElement(By.xpath(".//button[contains(text(),\" Re-open Check \")]")).click();
 		   Thread.sleep(10000);
